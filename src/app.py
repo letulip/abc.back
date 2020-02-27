@@ -63,7 +63,9 @@ class HomePage(BaseHandler):
 
     def get(self):
 
-        self.render('index.html')
+        self.render(
+          'index.html'
+          )
 
 
 class TestPage(BaseHandler):
@@ -71,7 +73,7 @@ class TestPage(BaseHandler):
     def get(self):
 
         self.render(
-            'test.html',
+            'dv_test.html',
             test_data = test_data
             )
 
@@ -82,7 +84,7 @@ class App(Application):
 
         handlers = [
             ('/', HomePage),
-            ('/test', TestPage),
+            ('/dv_test', TestPage)
         ]
 
         settings = dict(
