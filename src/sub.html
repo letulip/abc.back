@@ -1,9 +1,5 @@
 {% extends './index.html' %}
 
-{% block title %}Simple ABC Data Test - DV{% end %}
-
-{% block title %}ДВ тип страница{% end %}
-
 {% block content %}
 <div>
   <h2>Шпонки тип {{ test_data['name'] }}</h2>
@@ -40,7 +36,7 @@
   </table>
 
   <br>
-  {% raw table_data %}
+  {%raw renderTable() %}
 
 </div>
 {% end %}

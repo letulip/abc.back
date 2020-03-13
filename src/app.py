@@ -2,6 +2,7 @@ import sys
 import os
 import traceback
 import json
+import html
 
 from logging import (debug, info, warning, error, exception)
 
@@ -64,18 +65,46 @@ class HomePage(BaseHandler):
     def get(self):
 
         self.render(
-          'index.html'
-          )
+            'index.html',
+			test_data = test_data
+        )
 
 
 class TestPage(BaseHandler):
+
+    def renderTable(self, data):
+        # data = self.get_argument()
+        table = self.render_string(
+            'dv_table.html',
+            test_data = data
+        )
+
+        return table
 
     def get(self):
 
         self.render(
             'dv_test.html',
-            test_data = test_data
-            )
+            test_data = test_data['dv'],
+            table_data = self.renderTable(test_data['dv'])
+        )
+
+
+def renderTableFatory(self, data):
+	def renderTable():
+		return (self.render_string('dv_table.html', test_data=data))
+	return renderTable
+
+class SubTest(BaseHandler):
+	def get(self):
+		self.render('sub.html', 
+			test_data = test_data['dv'],
+			renderTable=renderTableFatory(self, test_data['dv'])
+			)
+
+class SubTest(BaseHandler):
+	def get(self, uri):
+		self.write(uri)
 
 
 class App(Application):
@@ -84,7 +113,10 @@ class App(Application):
 
         handlers = [
             ('/', HomePage),
-            ('/dv_test', TestPage)
+            ('/dv_test', TestPage),
+            ('/dvg_test', TestPage),
+            # ('/sb_test', SubTest)
+            (r'/catalog(/.+)', SubTest)
         ]
 
         settings = dict(
