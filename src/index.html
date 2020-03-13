@@ -5,15 +5,11 @@
   <title>{% block title %}Simple ABC Data Test{% end %}</title>
 </head>
 <body>
-  <h1>{% block title %}Главная страница{% end %}</h1>
+  <h1>{% block heading %}Главная страница{% end %}</h1>
 
   {% block content %}
-  <h2>Страницы:</h2>
-    <ol class="list">
-      {% for type in test_data %}
-        <li class="list__item"><a href="/{{ type }}_test">{{ type }}</a></li>
-      {% end %}
-    </ol>
+    Разметка главной страницы
+    <a href="/catalog">КАТАЛОГ</a>
   {% end %}
 
 </body>
