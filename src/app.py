@@ -110,6 +110,7 @@ class TestPage(BaseHandler):
 # 			renderTable = renderTableFatory(self, test_data['dv'])
 # 		)
 
+
 class SubTest(BaseHandler):
 
 	def renderTable(self, data):
@@ -126,7 +127,7 @@ class SubTest(BaseHandler):
 		self.render(
 			'{0}_test.html'.format(uri),
 			test_data = test_data[uri],
-			table_data = self.renderTable(test_data[uri])
+			table_data = self.renderTable(test_data[uri]['material'])
 		)
 
 
