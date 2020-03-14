@@ -18,7 +18,7 @@ from tornado.httpclient import AsyncHTTPClient
 
 # local imports
 from data import data as test_data
-import uimodules
+from modules import uimodules
 
 
 define('port', default = 9008, help = 'port to run on', type = int)
@@ -89,7 +89,7 @@ class TestPage(BaseHandler):
 	def renderTable(self, data):
 		# data = self.get_argument()
 		table = self.render_string(
-			'dv_table.html',
+			'templates/dv_table.html',
 			test_data = data
 		)
 
@@ -122,7 +122,7 @@ class SubTest(BaseHandler):
 	def renderTable(self, data):
 		# data = self.get_argument()
 		table = self.render_string(
-			'dv_table.html',
+			'templates/dv_table.html',
 			test_data = data
 		)
 
@@ -131,7 +131,7 @@ class SubTest(BaseHandler):
 	def get(self, uri):
 		# self.redirect(uri)
 		self.render(
-			'{0}_test.html'.format(uri),
+			'templates/{0}_test.html'.format(uri),
 			test_data = test_data[uri],
 			table_data = self.renderTable(test_data[uri]['material']),
 			module_data = test_data[uri]
