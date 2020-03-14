@@ -10,13 +10,15 @@ import html
 from logging import (debug, info, warning, error, exception)
 
 from tornado.web import (Application, RedirectHandler, RequestHandler,
-						 StaticFileHandler, HTTPError)
+						 StaticFileHandler, HTTPError, UIModule)
 from tornado.ioloop import IOLoop
 from tornado.options import (parse_config_file, parse_command_line, define, options)
 from tornado import (autoreload, gen)
 from tornado.httpclient import AsyncHTTPClient
 
+# local imports
 from data import data as test_data
+import uimodules
 
 
 define('port', default = 9008, help = 'port to run on', type = int)
@@ -62,6 +64,7 @@ class TestPageBaseHandler(BaseHandler):
 	def render(self, template_name, **kwargs):
 		# TODO
 		pass
+
 
 class HomePage(BaseHandler):
 
@@ -130,7 +133,8 @@ class SubTest(BaseHandler):
 		self.render(
 			'{0}_test.html'.format(uri),
 			test_data = test_data[uri],
-			table_data = self.renderTable(test_data[uri]['material'])
+			table_data = self.renderTable(test_data[uri]['material']),
+			module_data = test_data[uri]
 		)
 
 
@@ -149,7 +153,8 @@ class App(Application):
 
 		settings = dict(
 			debug = True,
-			autoreload = True
+			autoreload = True,
+			ui_modules = uimodules
 		)
 	
 		Application.__init__(self, handlers, **settings)
