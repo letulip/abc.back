@@ -1,8 +1,9 @@
+<!-- этот экземпляр страницы понадобится для другой версии контента -->
 {% extends './index.html' %}
 
-{% block title %}Simple ABC Data Test - DVG{% end %}
+{% block title %}Simple ABC Data Test - {{ test_data['name'] }}{% end %}
 
-{% block heading %}ДВГ тип страница{% end %}
+{% block heading %}{{ test_data['name'] }} тип страница{% end %}
 
 {% block content %}
 <div>

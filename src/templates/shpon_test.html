@@ -1,5 +1,9 @@
 {% extends './index.html' %}
 
+{% block title %}Simple ABC Data Test - {{ test_data['name'] }}{% end %}
+
+{% block heading %}{{ test_data['name'] }} тип страница{% end %}
+
 {% block content %}
 <div>
   <h2>Шпонки тип {{ test_data['name'] }}</h2>
@@ -36,7 +40,10 @@
   </table>
 
   <br>
-  {%raw renderTable() %}
+  {% raw table_data %}
+
+  <br>
+  {% module ShponTable(module_data) %}
 
 </div>
 {% end %}

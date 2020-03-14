@@ -71,7 +71,7 @@ class HomePage(BaseHandler):
 	def get(self):
 
 		self.render(
-			'index.html',
+			'templates/index.html',
 			test_data = test_data
 		)
 
@@ -79,50 +79,37 @@ class HomePage(BaseHandler):
 class CatalogPage(BaseHandler):
 	def get(self):
 		self.render(
-			'catalog.html',
+			'templates/catalog.html',
 			test_data = test_data
 		)
 
 
-class TestPage(BaseHandler):
+# class TestPage(BaseHandler):
 
-	def renderTable(self, data):
-		# data = self.get_argument()
-		table = self.render_string(
-			'templates/dv_table.html',
-			test_data = data
-		)
+# 	def renderTable(self, data):
+# 		# data = self.get_argument()
+# 		table = self.render_string(
+# 			'templates/dv_table.html',
+# 			test_data = data
+# 		)
 
-		return table
+# 		return table
 
-	def get(self):
-		mat_type = (self.request.uri).split('/')[2]
-		self.render(
-			'{0}_test.html'.format(mat_type),
-			test_data = test_data[mat_type],
-			table_data = self.renderTable(test_data[mat_type])
-		)
-
-
-# def renderTableFatory(self, data):
-# 	def renderTable():
-# 		return (self.render_string('dv_table.html', test_data=data))
-# 	return renderTable
-
-# class SubTest(BaseHandler):
 # 	def get(self):
-# 		self.render('sub.html', 
-# 			test_data = test_data['dv'],
-# 			renderTable = renderTableFatory(self, test_data['dv'])
+# 		mat_type = (self.request.uri).split('/')[2]
+# 		self.render(
+# 			'dv_test.html',
+# 			test_data = test_data[mat_type],
+# 			table_data = self.renderTable(test_data[mat_type])
 # 		)
 
 
-class SubTest(BaseHandler):
+class ModuleTest(BaseHandler):
 
 	def renderTable(self, data):
 		# data = self.get_argument()
 		table = self.render_string(
-			'templates/dv_table.html',
+			'templates/shpon_table.html',
 			test_data = data
 		)
 
@@ -131,7 +118,7 @@ class SubTest(BaseHandler):
 	def get(self, uri):
 		# self.redirect(uri)
 		self.render(
-			'templates/{0}_test.html'.format(uri),
+			'templates/shpon_test.html',
 			test_data = test_data[uri],
 			table_data = self.renderTable(test_data[uri]['material']),
 			module_data = test_data[uri]
@@ -145,9 +132,7 @@ class App(Application):
 		handlers = [
 			('/', HomePage),
 			('/catalog', CatalogPage),
-			# ('/catalog/dv', TestPage),
-			# ('/catalog/dvg', TestPage),
-			(r'/catalog/(.+)', SubTest),
+			(r'/catalog/(.+)', ModuleTest),
 			# ('/sb_test', SubTest)
 		]
 

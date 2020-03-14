@@ -8,7 +8,7 @@
   <h2>Продукты:</h2>
     <ol class="list">
       {% for type in test_data %}
-        <li class="list__item"><a href="/catalog/{{ type }}">Catalog {{ type }} page</a></li>
+        <li class="list__item"><a href="/catalog/{{ type }}">Страница {{ test_data[type]['name'] }} каталога</a></li>
       {% end %}
     </ol>
 {% end %}
