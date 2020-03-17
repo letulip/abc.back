@@ -9,7 +9,7 @@ data = {
           {
             'type': 'ДВ-170/12',
             'movements': {
-              'compression': 7,
+              'compres': 7,
               'strech': 12,
               'shift_v': 7,
               'shift_h': 3,
@@ -19,7 +19,7 @@ data = {
           {
             'type': 'ДВ-220/25',
             'movements': {
-              'compression': 15,
+              'compres': 15,
               'strech': 25,
               'shift_v': 15,
               'shift_h': 10,
@@ -29,7 +29,7 @@ data = {
           {
             'type': 'ДВ-270/25',
             'movements': {
-              'compression': 15,
+              'compres': 15,
               'strech': 25,
               'shift_v': 15,
               'shift_h': 10,
@@ -45,7 +45,7 @@ data = {
           {
             'type': 'ДВ-170/12-S',
             'movements': {
-              'compression': 7,
+              'compres': 7,
               'strech': 12,
               'shift_v': 7,
               'shift_h': 3,
@@ -55,7 +55,7 @@ data = {
           {
             'type': 'ДВ-220/25-S',
             'movements': {
-              'compression': 15,
+              'compres': 15,
               'strech': 25,
               'shift_v': 15,
               'shift_h': 10,
@@ -65,7 +65,7 @@ data = {
           {
             'type': 'ДВ-270/25-S',
             'movements': {
-              'compression': 15,
+              'compres': 15,
               'strech': 25,
               'shift_v': 15,
               'shift_h': 10,
@@ -86,7 +86,7 @@ data = {
           {
             'type': 'ДВГ-170/12',
             'movements': {
-              'compression': 7,
+              'compres': 7,
               'strech': 12,
               'shift_v': 7,
               'shift_h': 3,
@@ -96,7 +96,7 @@ data = {
           {
             'type': 'ДВГ-220/25',
             'movements': {
-              'compression': 15,
+              'compres': 15,
               'strech': 25,
               'shift_v': 15,
               'shift_h': 10,
@@ -106,7 +106,7 @@ data = {
           {
             'type': 'ДВГ-270/25',
             'movements': {
-              'compression': 15,
+              'compres': 15,
               'strech': 25,
               'shift_v': 15,
               'shift_h': 10,
@@ -122,7 +122,7 @@ data = {
           {
             'type': 'ДВГ-170/12-S',
             'movements': {
-              'compression': 7,
+              'compres': 7,
               'strech': 12,
               'shift_v': 7,
               'shift_h': 3,
@@ -132,7 +132,7 @@ data = {
           {
             'type': 'ДВГ-220/25-S',
             'movements': {
-              'compression': 15,
+              'compres': 15,
               'strech': 25,
               'shift_v': 15,
               'shift_h': 10,
@@ -142,7 +142,7 @@ data = {
           {
             'type': 'ДВГ-270/25-S',
             'movements': {
-              'compression': 15,
+              'compres': 15,
               'strech': 25,
               'shift_v': 15,
               'shift_h': 10,

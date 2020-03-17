@@ -20,9 +20,13 @@ from tornado.httpclient import AsyncHTTPClient
 from data import data as test_data
 from modules import uimodules
 
-
 define('port', default = 9008, help = 'port to run on', type = int)
 define('site_url', default = 'localhost', help = 'site URL')
+
+base_path = os.path.abspath(os.path.dirname(__file__))
+static_path = os.path.realpath(os.path.join(base_path, './static'))
+template_path = os.path.realpath(os.path.join(base_path, 'templates'))
+module_path = os.path.realpath(os.path.join(base_path, 'modules'))
 
 
 class MixinCustomHandler():
@@ -36,7 +40,7 @@ class MixinCustomHandler():
 					self.write(line)
 				self.finish()
 			else:
-				self.render('error.heml', status_code = status_code, reason = self._reason)
+				self.render('error.html', status_code = status_code, reason = self._reason)
 		except Exception as err:
 			exception(err)
 			self.set_header('Content-Type', 'text/plain')
@@ -59,6 +63,10 @@ class BaseHandler(MixinCustomHandler, RequestHandler):
 			**kwargs)
 
 
+class CustomStatic(MixinCustomHandler, StaticFileHandler):
+    render = MixinCustomHandler.render
+
+
 class TestPageBaseHandler(BaseHandler):
 
 	def render(self, template_name, **kwargs):
@@ -71,7 +79,7 @@ class HomePage(BaseHandler):
 	def get(self):
 
 		self.render(
-			'templates/index.html',
+			'index.html',
 			test_data = test_data
 		)
 
@@ -79,7 +87,7 @@ class HomePage(BaseHandler):
 class CatalogPage(BaseHandler):
 	def get(self):
 		self.render(
-			'templates/catalog.html',
+			'catalog.html',
 			test_data = test_data
 		)
 
@@ -109,7 +117,7 @@ class ModuleTest(BaseHandler):
 	def renderTable(self, data):
 		# data = self.get_argument()
 		table = self.render_string(
-			'templates/shpon_table.html',
+			'shpon_table.html',
 			test_data = data
 		)
 
@@ -118,7 +126,7 @@ class ModuleTest(BaseHandler):
 	def get(self, uri):
 		# self.redirect(uri)
 		self.render(
-			'templates/shpon_test.html',
+			'shpon_test.html',
 			test_data = test_data[uri],
 			table_data = self.renderTable(test_data[uri]['material']),
 			module_data = test_data[uri]
@@ -134,12 +142,16 @@ class App(Application):
 			('/catalog', CatalogPage),
 			(r'/catalog/(.+)', ModuleTest),
 			# ('/sb_test', SubTest)
+			(r'/(.*)', CustomStatic, {'path': static_path})
 		]
 
 		settings = dict(
 			debug = True,
 			autoreload = True,
-			ui_modules = uimodules
+			ui_modules = uimodules,
+			static_path = static_path,
+			template_path = template_path,
+			# module_path = module_path,
 		)
 	
 		Application.__init__(self, handlers, **settings)
