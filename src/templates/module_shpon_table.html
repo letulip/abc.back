@@ -1,0 +1,30 @@
+<table class="techInfo" style="background-color: burlywood;">
+  <tr class="techInfo__row techInfo__row--top">
+    <th class="techInfo__data" width="20%" rowspan="2">ТИП</th>
+    <th class="techInfo__data techInfo__data--wide" colspan="4">Перемещение, мм</th>
+    <th class="techInfo__data" rowspan="2">Давление<br>воды, МПа</th>
+  </tr>
+  <tr class="techInfo__row techInfo__row--top">                        
+    <td class="techInfo__data"><strong>Сжатие</strong></td>
+    <td class="techInfo__data"><strong>Растяжение</strong></td>
+    <td class="techInfo__data"><strong>Сдвиг<br>поперечный</strong></td>
+    <td class="techInfo__data"><strong>Сдвиг<br>продольный</strong></td>
+  </tr>
+  {% for val in module_data['material'] %}
+    <tr class="techInfo__row">
+      <td class="techInfo__data techInfo__data--material" colspan="6">
+        {{ val['mat_type_ext'] }}
+      </td>
+    </tr>
+    {% for type in val['types'] %}
+      <tr class="techInfo__row">
+        <td class="techInfo__data">{{ type['type'] }}</td>
+        <td class="techInfo__data">{{ type['movements']['compres'] }}</td>
+        <td class="techInfo__data">{{ type['movements']['strech'] }}</td>
+        <td class="techInfo__data">{{ type['movements']['shift_v'] }}</td>
+        <td class="techInfo__data">{{ type['movements']['shift_h'] }}</td>
+        <td class="techInfo__data">{{ type['pressure'] }}</td>
+      </tr>
+    {% end %}
+  {% end %}
+</table>

@@ -1,0 +1,50 @@
+<!-- этот экземпляр страницы понадобится для другой версии контента -->
+{% extends './index.html' %}
+
+{% block title %}Simple ABC Data Test - {{ test_data['name'] }}{% end %}
+
+{% block heading %}{{ test_data['name'] }} тип страница{% end %}
+
+{% block content %}
+<div>
+  <h2>Шпонки тип {{ test_data['name'] }}</h2>
+
+  <table class="techInfo">
+    <tr class="techInfo__row techInfo__row--top">
+      <th class="techInfo__data" width="20%" rowspan="2">ТИП</th>
+      <th class="techInfo__data techInfo__data--wide" colspan="4">Перемещение, мм</th>
+      <th class="techInfo__data" rowspan="2">Давление<br>воды, МПа</th>
+    </tr>
+    <tr class="techInfo__row techInfo__row--top">                        
+      <td class="techInfo__data"><strong>Сжатие</strong></td>
+      <td class="techInfo__data"><strong>Растяжение</strong></td>
+      <td class="techInfo__data"><strong>Сдвиг<br>поперечный</strong></td>
+      <td class="techInfo__data"><strong>Сдвиг<br>продольный</strong></td>
+    </tr>
+    {% for val in test_data['material'] %}
+      <tr class="techInfo__row">
+        <td class="techInfo__data techInfo__data--material" colspan="6">
+          {{ val['mat_type_ext'] }}
+        </td>
+      </tr>
+      {% for type in val['types'] %}
+        <tr class="techInfo__row">
+          <td class="techInfo__data">{{ type['type'] }}</td>
+          <td class="techInfo__data">{{ type['movements']['compression'] }}</td>
+          <td class="techInfo__data">{{ type['movements']['strech'] }}</td>
+          <td class="techInfo__data">{{ type['movements']['shift_v'] }}</td>
+          <td class="techInfo__data">{{ type['movements']['shift_h'] }}</td>
+          <td class="techInfo__data">{{ type['pressure'] }}</td>
+        </tr>
+      {% end %}
+    {% end %}
+  </table>
+
+  <br>
+  {% raw table_data %}
+
+  <br>
+  {% module dvTable(module_data) %}
+
+</div>
+{% end %}
