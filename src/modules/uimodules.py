@@ -17,9 +17,18 @@ class NavTree(UIModule):
 
 
 class NavTop(UIModule):
-	def render(self, data):
+	def render(self, data, uri):
 		return self.render_string(
 			"modules/module_nav_top.html",
+			module_data = data,
+			module_uri = uri
+		)
+
+
+class ShponTabs(UIModule):
+	def render(self, data):
+		return self.render_string(
+			"modules/module_shpon_tabs.html",
 			module_data = data
 		)
 

@@ -1,6 +1,7 @@
 data = {
   'dv': {
     'name': 'ДВ',
+    'description': 'Герметизация технологических швов бетонирования при строительстве гидротехнических, заглубленных и подземных сооружений.',
     'material': [
       {
         'mat_type': 'Резина',
@@ -71,6 +72,82 @@ data = {
               'shift_h': 10,
             },
             'pressure': 0.75
+          }
+        ]
+      },
+      {
+        'mat_type': 'ПВХ-П',
+        'mat_type_ext': 'ПВХ-П',
+        'types': [
+          {
+            'type': 'ДВ-240/20',
+            'movements': {
+              'compres': 14,
+              'strech': 30,
+              'shift_v': 30,
+              'shift_h': 15,
+            },
+            'pressure': 0.60
+          },
+          {
+            'type': 'ДВ-320/20',
+            'movements': {
+              'compres': 12,
+              'strech': 30,
+              'shift_v': 30,
+              'shift_h': 15,
+            },
+            'pressure': 0.80
+          },
+          {
+            'type': 'ДВ-320/30',
+            'movements': {
+              'compres': 28,
+              'strech': 70,
+              'shift_v': 70,
+              'shift_h': 40,
+            },
+            'pressure': 0.80
+          },
+          {
+            'type': 'ДВ-320/40',
+            'movements': {
+              'compres': 28,
+              'strech': 110,
+              'shift_v': 110,
+              'shift_h': 55,
+            },
+            'pressure': 0.80
+          },
+          {
+            'type': 'ДВ-320/50',
+            'movements': {
+              'compres': 28,
+              'strech': 120,
+              'shift_v': 110,
+              'shift_h': 70,
+            },
+            'pressure': 0.80
+          },
+          {
+            'type': 'ДВ-400/50',
+            'movements': {
+              'compres': 28,
+              'strech': 120,
+              'shift_v': 110,
+              'shift_h': 70,
+            },
+            'pressure': 0.85
+          },
+          {
+            'type': 'ДВ-500/50',
+            'movements': {
+              'compres': 28,
+              'strech': 120,
+              'shift_v': 110,
+              'shift_h': 70,
+            },
+            'pressure': 0.85
           }
         ]
       },

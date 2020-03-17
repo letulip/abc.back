@@ -5,17 +5,35 @@
   {% block meta %}
   {% end %}
 
-  <link rel="stylesheet" href="css/style.min.css">
+  <!-- fix browser path for sub folder site -->
+  <!-- <base href="http://www.example.com/page.html"> -->
+
+  <link rel="stylesheet" href="/css/style.min.css">
 
   <title>{% block title %}Главная страница ABC Data Test{% end %}</title>
 </head>
-<body>
-  <h1>{% block heading %}Главная страница{% end %}</h1>
+<body class="pageBody">
+  {% module PageHeader() %}
 
-  {% block content %}
-    Разметка главной страницы
-    <a href="/catalog">КАТАЛОГ</a>
+  <main class="pageMain">
+    <div class="pageMain__wrapper width width--fullscreen">
+      <div class="pageLayout">
+        <h1>{% block heading %}Главная страница{% end %}</h1>
+        
+        {% block content %}
+          Разметка главной страницы
+          <br>
+          <a href="/catalog">КАТАЛОГ</a>
+        {% end %}
+        
+      </div>
+    </div>
+  </main>
+
+  {% module PageFooter() %}
+
+  {% block scrips %}
   {% end %}
-
+  
 </body>
 </html>

@@ -125,10 +125,12 @@ class ModuleShpon(BaseHandler):
 
 	def get(self, uri):
 		# self.redirect(uri)
+		print(uri)
 		self.render(
 			'shpon_content_layout.html',
 			# test_data = test_data[uri],
 			# table_data = self.renderTable(test_data[uri]['material']),
+			module_uri = uri,
 			module_data = test_data[uri]
 		)
 

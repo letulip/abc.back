@@ -2,22 +2,27 @@
 
 {% block title %}АКВАБАРЬЕР - Шпонки тип {{ module_data['name'] }}{% end %}
 
-{% block heading %}
-  Шпонки тип {{ module_data['name'] }}
-{% end %}
-
 {% block content %}
 
   {% module NavTree(module_data) %}
   
   <div class="pageLayout">
-    {% module NavTop(module_data) %}
+    {% module NavTop(module_data, module_uri) %}
 
-    {% module ShponTable(module_data) %}
+    <h1 class="heading heading--h1">Гидроизоляционные шпонки АКВАСТОП<sup>&reg;</sup> тип {{ module_data['name'] }}</h1>
+
+    {% if 'description' in module_data %}
+    <p class="text">{{ module_data['description'] }}</p>
+    {% end %}
+
+    <h2 class="heading heading--h2">Материал:</h2>
+
+    {% module ShponTabs(module_data) %}
+
   </div>
 {% end %}
 
 {% block scrips %}
-  <script src="{{ static_url("js/tabs/tabs2.js") }}"></script>
-  <script src="{{ static_url("js/navTree/navTree2.js") }}"></script>
+  <script src="/js/tabs/tabs2.js"></script>
+  <script src="/js/navTree/navTree2.js"></script>
 {% end %}
