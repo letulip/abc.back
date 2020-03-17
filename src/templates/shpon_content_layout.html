@@ -7,15 +7,14 @@
 {% end %}
 
 {% block content %}
-<div>
-  
 
+  {% module NavTree(module_data) %}
   
+  <div class="pageLayout">
+    {% module NavTop(module_data) %}
 
-  
-  {% module ShponTable(module_data) %}
-
-</div>
+    {% module ShponTable(module_data) %}
+  </div>
 {% end %}
 
 {% block scrips %}

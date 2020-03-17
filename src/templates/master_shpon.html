@@ -5,19 +5,22 @@
   {% block meta %}
   {% end %}
 
-  <link rel="stylesheet" href="{{ static_url("css/style.min.css") }}">
+  <link rel="stylesheet" href="/css/style.min.css">
   
   <title>{% block title %}Главная страница ABC Data Test{% end %}</title>
 </head>
 <body class="pageBody">
   {% module PageHeader() %}
 
-  <h1>{% block heading %}Главная страница{% end %}</h1>
+  <main class="pageMain">
+    <div class="pageMain__wrapper width width--fullscreen">
 
-  {% block content %}
-    Разметка главной страницы
-    <a href="/catalog">КАТАЛОГ</a>
-  {% end %}
+      {% block content %}
+        Шаблон разметки страницы Шпонки
+      {% end %}
+
+    </div>
+  </main>
 
   {% module PageFooter() %}
 

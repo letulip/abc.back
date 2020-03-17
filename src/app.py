@@ -23,10 +23,10 @@ from modules import uimodules
 define('port', default = 9008, help = 'port to run on', type = int)
 define('site_url', default = 'localhost', help = 'site URL')
 
-base_path = os.path.abspath(os.path.dirname(__file__))
-static_path = os.path.realpath(os.path.join(base_path, './static'))
-template_path = os.path.realpath(os.path.join(base_path, 'templates'))
-module_path = os.path.realpath(os.path.join(base_path, 'modules'))
+webapp_path = os.path.abspath(os.path.dirname(__file__))
+static_path = os.path.realpath(os.path.join(webapp_path, './static'))
+template_path = os.path.realpath(os.path.join(webapp_path, 'templates'))
+module_path = os.path.realpath(os.path.join(webapp_path, 'modules'))
 
 
 class MixinCustomHandler():

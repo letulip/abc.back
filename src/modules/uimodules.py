@@ -7,6 +7,23 @@ class PageHeader(UIModule):
 			"modules/module_page_header.html"
 		)
 
+
+class NavTree(UIModule):
+	def render(self, data):
+		return self.render_string(
+			"modules/module_nav_tree.html",
+			module_data = data
+		)
+
+
+class NavTop(UIModule):
+	def render(self, data):
+		return self.render_string(
+			"modules/module_nav_top.html",
+			module_data = data
+		)
+
+
 class ShponTable(UIModule):
 	def render(self, data):
 		return self.render_string(
