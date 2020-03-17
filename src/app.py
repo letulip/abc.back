@@ -125,7 +125,7 @@ class ModuleShpon(BaseHandler):
 
 	def get(self, uri):
 		# self.redirect(uri)
-		print(uri)
+		# print(uri)
 		self.render(
 			'shpon_content_layout.html',
 			# test_data = test_data[uri],

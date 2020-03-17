@@ -15,7 +15,8 @@ data = {
               'shift_v': 7,
               'shift_h': 3,
             },
-            'pressure': 0.47
+            'pressure': 0.47,
+            'patent': False,
           },
           {
             'type': 'ДВ-220/25',
@@ -25,7 +26,8 @@ data = {
               'shift_v': 15,
               'shift_h': 10,
             },
-            'pressure': 0.58
+            'pressure': 0.58,
+            'patent': False,
           },
           {
             'type': 'ДВ-270/25',
@@ -35,7 +37,8 @@ data = {
               'shift_v': 15,
               'shift_h': 10,
             },
-            'pressure': 0.75
+            'pressure': 0.75,
+            'patent': False,
           }
         ]
       },
@@ -51,7 +54,8 @@ data = {
               'shift_v': 7,
               'shift_h': 3,
             },
-            'pressure': 0.47
+            'pressure': 0.47,
+            'patent': False,
           },
           {
             'type': 'ДВ-220/25-S',
@@ -61,7 +65,8 @@ data = {
               'shift_v': 15,
               'shift_h': 10,
             },
-            'pressure': 0.58
+            'pressure': 0.58,
+            'patent': False,
           },
           {
             'type': 'ДВ-270/25-S',
@@ -71,7 +76,8 @@ data = {
               'shift_v': 15,
               'shift_h': 10,
             },
-            'pressure': 0.75
+            'pressure': 0.75,
+            'patent': False,
           }
         ]
       },
@@ -87,7 +93,8 @@ data = {
               'shift_v': 30,
               'shift_h': 15,
             },
-            'pressure': 0.60
+            'pressure': 0.60,
+            'patent': False,
           },
           {
             'type': 'ДВ-320/20',
@@ -97,7 +104,8 @@ data = {
               'shift_v': 30,
               'shift_h': 15,
             },
-            'pressure': 0.80
+            'pressure': 0.80,
+            'patent': False,
           },
           {
             'type': 'ДВ-320/30',
@@ -107,7 +115,8 @@ data = {
               'shift_v': 70,
               'shift_h': 40,
             },
-            'pressure': 0.80
+            'pressure': 0.80,
+            'patent': True,
           },
           {
             'type': 'ДВ-320/40',
@@ -117,7 +126,8 @@ data = {
               'shift_v': 110,
               'shift_h': 55,
             },
-            'pressure': 0.80
+            'pressure': 0.80,
+            'patent': True,
           },
           {
             'type': 'ДВ-320/50',
@@ -127,7 +137,8 @@ data = {
               'shift_v': 110,
               'shift_h': 70,
             },
-            'pressure': 0.80
+            'pressure': 0.80,
+            'patent': True,
           },
           {
             'type': 'ДВ-400/50',
@@ -137,7 +148,8 @@ data = {
               'shift_v': 110,
               'shift_h': 70,
             },
-            'pressure': 0.85
+            'pressure': 0.85,
+            'patent': True,
           },
           {
             'type': 'ДВ-500/50',
@@ -147,7 +159,8 @@ data = {
               'shift_v': 110,
               'shift_h': 70,
             },
-            'pressure': 0.85
+            'pressure': 0.85,
+            'patent': True,
           }
         ]
       },
@@ -168,7 +181,8 @@ data = {
               'shift_v': 7,
               'shift_h': 3,
             },
-            'pressure': 0.47
+            'pressure': 0.47,
+            'patent': False,
           },
           {
             'type': 'ДВГ-220/25',
@@ -178,7 +192,8 @@ data = {
               'shift_v': 15,
               'shift_h': 10,
             },
-            'pressure': 0.58
+            'pressure': 0.58,
+            'patent': False,
           },
           {
             'type': 'ДВГ-270/25',
@@ -188,7 +203,8 @@ data = {
               'shift_v': 15,
               'shift_h': 10,
             },
-            'pressure': 0.75
+            'pressure': 0.75,
+            'patent': False,
           }
         ]
       },
@@ -204,7 +220,8 @@ data = {
               'shift_v': 7,
               'shift_h': 3,
             },
-            'pressure': 0.47
+            'pressure': 0.47,
+            'patent': False,
           },
           {
             'type': 'ДВГ-220/25-S',
@@ -214,7 +231,8 @@ data = {
               'shift_v': 15,
               'shift_h': 10,
             },
-            'pressure': 0.58
+            'pressure': 0.58,
+            'patent': False,
           },
           {
             'type': 'ДВГ-270/25-S',
@@ -224,7 +242,8 @@ data = {
               'shift_v': 15,
               'shift_h': 10,
             },
-            'pressure': 0.75
+            'pressure': 0.75,
+            'patent': False,
           }
         ]
       },

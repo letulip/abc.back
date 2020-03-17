@@ -41,6 +41,14 @@ class ShponTable(UIModule):
 		)
 
 
+class ShponViews(UIModule):
+	def render(self, data):
+		return self.render_string(
+			"modules/module_shpon_views.html",
+			module_data = data
+		)
+
+
 class PageFooter(UIModule):
 	def render(self):
 		return self.render_string(
