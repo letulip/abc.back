@@ -1,0 +1,24 @@
+{% extends './master_shpon.html' %}
+
+{% block title %}АКВАБАРЬЕР - Шпонки тип {{ module_data['name'] }}{% end %}
+
+{% block heading %}
+  Шпонки тип {{ module_data['name'] }}
+{% end %}
+
+{% block content %}
+<div>
+  
+
+  
+
+  
+  {% module ShponTable(module_data) %}
+
+</div>
+{% end %}
+
+{% block scrips %}
+  <script src="{{ static_url("js/tabs/tabs2.js") }}"></script>
+  <script src="{{ static_url("js/navTree/navTree2.js") }}"></script>
+{% end %}

@@ -112,23 +112,23 @@ class CatalogPage(BaseHandler):
 # 		)
 
 
-class ModuleTest(BaseHandler):
+class ModuleShpon(BaseHandler):
 
-	def renderTable(self, data):
-		# data = self.get_argument()
-		table = self.render_string(
-			'shpon_table.html',
-			test_data = data
-		)
+	# def renderTable(self, data):
+	# 	# data = self.get_argument()
+	# 	table = self.render_string(
+	# 		'shpon_table.html',
+	# 		test_data = data
+	# 	)
 
-		return table
+	# 	return table
 
 	def get(self, uri):
 		# self.redirect(uri)
 		self.render(
-			'shpon_test.html',
-			test_data = test_data[uri],
-			table_data = self.renderTable(test_data[uri]['material']),
+			'shpon_content_layout.html',
+			# test_data = test_data[uri],
+			# table_data = self.renderTable(test_data[uri]['material']),
 			module_data = test_data[uri]
 		)
 
@@ -140,7 +140,7 @@ class App(Application):
 		handlers = [
 			('/', HomePage),
 			('/catalog', CatalogPage),
-			(r'/catalog/(.+)', ModuleTest),
+			(r'/catalog/(.+)', ModuleShpon),
 			# ('/sb_test', SubTest)
 			(r'/(.*)', CustomStatic, {'path': static_path})
 		]
