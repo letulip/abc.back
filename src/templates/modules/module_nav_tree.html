@@ -5,14 +5,23 @@
   <ul class="navTree__list navTree__list--first">
     <li class="navTree__item navTree__item--aquastop">
       <div class="navTree__firstLevel navTree__firstLevel--aquastop">
-        <a class="navTree__link" href="demo_catalog.html">Система АКВАСТОП<sup>®</sup></a>
+        <a class="navTree__link" href="/catalog">Система АКВАСТОП<sup>®</sup></a>
       </div>
     </li>
     <li class="navTree__item navTree__item--first">
       <div class="navTree__firstLevel">
         <span class="navTree__arrow">&#10148;</span>
-        Общие положения
+        <a class="navTree__link" href="/catalog/#TODO">Общие положения</a>
       </div>
     </li>
+    {% for val in module_data %}
+    <li class="navTree__item navTree__item--first">
+      <div class="navTree__firstLevel">
+        <span class="navTree__arrow">&#10148;</span>
+        <a class="navTree__link" href="/catalog/{{ val }}">Шпонки АКВАСТОП тип {{ module_data[val]['name'] }}</a>
+        
+      </div>
+    </li>
+    {% end %}
   </ul>
 </div>

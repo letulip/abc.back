@@ -131,7 +131,8 @@ class ModuleShpon(BaseHandler):
 			# test_data = test_data[uri],
 			# table_data = self.renderTable(test_data[uri]['material']),
 			module_uri = uri,
-			module_data = test_data[uri]
+			module_data = test_data[uri],
+			common_data = test_data
 		)
 
 
