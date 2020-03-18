@@ -1,15 +1,27 @@
 <section class="tabs">
   <div class="tabs__labels">
     {% for val in module_data['material'] %}
-    <a class="tabs__tab tabs__tab--first" href="/catalog/{{ module_uri }}/">
-      {{ val['mat_type_ext'] }}
-    </a>
+      {% if val['mat_type'] == module_material %}
+        <a class="tabs__tab tabs__tab--first tabs__tab--active" href="/catalog/shpon/{{ module_uri }}/{{ val['mat_type'] }}">
+          {{ val['mat_type_ext'] }}
+        </a>
+      {% else %}
+        <a class="tabs__tab tabs__tab--first" href="/catalog/shpon/{{ module_uri }}/{{ val['mat_type'] }}">
+          {{ val['mat_type_ext'] }}
+        </a>
+      {% end %}
     {% end %}
   </div>
   
   <article class="tabs__tabContent tabs__tabContent--first tabs__tabContent--active">
     <h3 class="heading heading--h3">
-      ХАРАКТЕРИСТИКИ - материал -  <span class="heading__active">{{ module_data['material'][module_material]['mat_type_ext'] }}</span>
+      ХАРАКТЕРИСТИКИ - материал -  <span class="heading__active">
+        {% for val in module_data['material'] %}
+          {% if val['mat_type'] == module_material %}
+            {{ val['mat_type_ext'] }}
+          {% end %}
+        {% end %}
+      </span>
     </h3>
     <div class="tabs__second">
       <div class="tabs__labels">

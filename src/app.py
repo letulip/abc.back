@@ -116,6 +116,7 @@ class ModuleShponDetail(BaseHandler):
 		material_path = 0
 		if len(path) > 1:
 			material_path = path[1]
+		# print(material_path)
 		self.render(
 			'shpon_content_layout.html',
 			# test_data = test_data[uri],

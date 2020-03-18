@@ -18,6 +18,7 @@ class NavTree(UIModule):
 
 class NavTop(UIModule):
 	def render(self, data, uri, *args):
+		# print(args[0])
 		return self.render_string(
 				"modules/module_nav_top.html",
 				module_data = data,

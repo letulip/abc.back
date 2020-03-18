@@ -9,12 +9,12 @@
   {% module NavTree(common_data) %}
 
   <div class="pageLayout">
-    {% module NavTop(test_data, module_uri) %}
+    {% module NavTop(test_data, module_uri, False) %}
 
     <h1 class="heading heading--h1">{{ test_data['dir_name'] }}</h1>
     <ol class="list">
       {% for type in test_data['dir_contents'] %}
-        <li class="list__item"><a href="/catalog/shpon/{{ type }}">{{ test_data['dir_contents'][type]['name'] }}</a></li>
+        <li class="list__item"><a href="/catalog/shpon/{{ type }}/{{ test_data['dir_contents'][type]['material'][0]['mat_type'] }}">{{ test_data['dir_contents'][type]['name'] }}</a></li>
       {% end %}
     </ol>
   </div>
