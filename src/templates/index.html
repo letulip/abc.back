@@ -17,16 +17,11 @@
 
   <main class="pageMain">
     <div class="pageMain__wrapper width width--fullscreen">
-      <div class="pageLayout">
-        <h1>{% block heading %}Главная страница{% end %}</h1>
-        
-        {% block content %}
-          Разметка главной страницы
-          <br>
-          <a href="/catalog">КАТАЛОГ</a>
-        {% end %}
-        
-      </div>
+      {% block content %}
+        Разметка главной страницы
+        <br>
+        <a href="/catalog">КАТАЛОГ</a>
+      {% end %}
     </div>
   </main>
 

@@ -2,13 +2,18 @@
 
 {% block title %}Simple ABC Data Test - Catalog{% end %}
 
-{% block heading %}Каталог Продукции{% end %}
-
 {% block content %}
-  <h2>Продукты:</h2>
+  
+  {% module NavTree(test_data) %}
+
+  <div class="pageLayout">
+    {% module NavTop(test_data, module_uri) %}
+
+    <h1 class="heading heading--h1">Каталог Продукции</h1>
     <ol class="list">
       {% for type in test_data %}
-        <li class="list__item"><a href="/catalog/{{ type }}">Страница {{ test_data[type]['name'] }} каталога</a></li>
+        <li class="list__item"><a href="/catalog/{{ type }}">{{ test_data[type]['dir_name'] }}</a></li>
       {% end %}
     </ol>
+  </div>
 {% end %}

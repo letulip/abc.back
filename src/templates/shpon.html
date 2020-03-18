@@ -1,0 +1,21 @@
+{% extends './index.html' %}
+
+{% block title %}Simple ABC Data Test - Shpon{% end %}
+
+{% block heading %}{{ test_data['dir_name'] }}{% end %}
+
+{% block content %}
+
+  {% module NavTree(common_data) %}
+
+  <div class="pageLayout">
+    {% module NavTop(test_data, module_uri) %}
+
+    <h1 class="heading heading--h1">{{ test_data['dir_name'] }}</h1>
+    <ol class="list">
+      {% for type in test_data['dir_contents'] %}
+        <li class="list__item"><a href="/catalog/shpon/{{ type }}">{{ test_data['dir_contents'][type]['name'] }}</a></li>
+      {% end %}
+    </ol>
+  </div>
+{% end %}

@@ -88,50 +88,31 @@ class CatalogPage(BaseHandler):
 	def get(self):
 		self.render(
 			'catalog.html',
-			test_data = test_data
+			test_data = test_data,
+			module_uri = 0
 		)
 
 
-# class TestPage(BaseHandler):
+class ModuleShponMain(BaseHandler):
 
-# 	def renderTable(self, data):
-# 		# data = self.get_argument()
-# 		table = self.render_string(
-# 			'templates/dv_table.html',
-# 			test_data = data
-# 		)
-
-# 		return table
-
-# 	def get(self):
-# 		mat_type = (self.request.uri).split('/')[2]
-# 		self.render(
-# 			'dv_test.html',
-# 			test_data = test_data[mat_type],
-# 			table_data = self.renderTable(test_data[mat_type])
-# 		)
+	def get(self):
+		self.render(
+			'shpon.html',
+			test_data = test_data['shpon'],
+			module_uri = 0,
+			common_data = test_data
+		)
 
 
-class ModuleShpon(BaseHandler):
-
-	# def renderTable(self, data):
-	# 	# data = self.get_argument()
-	# 	table = self.render_string(
-	# 		'shpon_table.html',
-	# 		test_data = data
-	# 	)
-
-	# 	return table
+class ModuleShponDetail(BaseHandler):
 
 	def get(self, uri):
-		# self.redirect(uri)
-		# print(uri)
 		self.render(
 			'shpon_content_layout.html',
 			# test_data = test_data[uri],
 			# table_data = self.renderTable(test_data[uri]['material']),
 			module_uri = uri,
-			module_data = test_data[uri],
+			module_data = test_data['shpon']['dir_contents'][uri],
 			common_data = test_data
 		)
 
@@ -143,7 +124,8 @@ class App(Application):
 		handlers = [
 			('/', HomePage),
 			('/catalog', CatalogPage),
-			(r'/catalog/(.+)', ModuleShpon),
+			('/catalog/shpon', ModuleShponMain),
+			(r'/catalog/shpon/(.+)', ModuleShponDetail),
 			# ('/sb_test', SubTest)
 			(r'/(.*)', CustomStatic, {'path': static_path})
 		]
