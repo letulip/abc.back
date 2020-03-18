@@ -1,7 +1,7 @@
 <section class="tabs">
   <div class="tabs__labels">
     {% for val in module_data['material'] %}
-    <a class="tabs__tab tabs__tab--first" href="#TODO">
+    <a class="tabs__tab tabs__tab--first" href="/catalog/{{ module_uri }}/">
       {{ val['mat_type_ext'] }}
     </a>
     {% end %}
@@ -9,7 +9,7 @@
   
   <article class="tabs__tabContent tabs__tabContent--first tabs__tabContent--active">
     <h3 class="heading heading--h3">
-      ХАРАКТЕРИСТИКИ - материал -  <span class="heading__active">ПВХ-П</span>
+      ХАРАКТЕРИСТИКИ - материал -  <span class="heading__active">{{ module_data['material'][module_material]['mat_type_ext'] }}</span>
     </h3>
     <div class="tabs__second">
       <div class="tabs__labels">

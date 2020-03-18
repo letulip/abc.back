@@ -104,15 +104,25 @@ class ModuleShponMain(BaseHandler):
 		)
 
 
+def ParseUri(uri):
+	return uri.split('/')
+
+
 class ModuleShponDetail(BaseHandler):
 
 	def get(self, uri):
+		path = ParseUri(uri)
+		make_path = path[0]
+		material_path = 0
+		if len(path) > 1:
+			material_path = path[1]
 		self.render(
 			'shpon_content_layout.html',
 			# test_data = test_data[uri],
 			# table_data = self.renderTable(test_data[uri]['material']),
-			module_uri = uri,
-			module_data = test_data['shpon']['dir_contents'][uri],
+			module_uri = make_path,
+			module_uri_material = material_path,
+			module_data = test_data['shpon']['dir_contents'][make_path],
 			common_data = test_data
 		)
 

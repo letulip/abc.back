@@ -15,7 +15,10 @@
       <a class="navTop__link" href="/catalog/shpon/{{ module_uri }}">тип {{ module_data['name'] }}</a>
     </li>
     {% end %}
+    
+    {% if module_material %}
     <li class="navTop__item navTop__item--vr">></li>
-    <li class="navTop__item">TODO Material</li>
+    <li class="navTop__item">module_data['module_material']</li>
+    {% end %}
   </ul>
 </div>
