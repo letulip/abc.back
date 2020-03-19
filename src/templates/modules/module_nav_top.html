@@ -16,9 +16,13 @@
     </li>
     {% end %}
     
-    {% if type(module_material) == int %}
-    <li class="navTop__item navTop__item--vr">></li>
-    <li class="navTop__item">{{ module_data['material'][module_material]['mat_type_ext'] }}</li>
+    {% if type(module_material) == str %}
+      {% for val in module_data['material'] %}
+        {% if val['mat_type'] == module_material %}
+          <li class="navTop__item navTop__item--vr">></li>
+          <li class="navTop__item">{{ val['mat_type_ext'] }}</li>
+        {% end %}
+      {% end %}
     {% end %}
   </ul>
 </div>
