@@ -20,6 +20,7 @@ data = {
                   'shift_h': 3,
                 },
                 'pressure': 0.47,
+                'pic_name': '170-12-rubber',
                 'patent': False,
               },
               {
@@ -31,6 +32,7 @@ data = {
                   'shift_h': 10,
                 },
                 'pressure': 0.58,
+                'pic_name': '220-25-rubber',
                 'patent': False,
               },
               {
@@ -42,6 +44,7 @@ data = {
                   'shift_h': 10,
                 },
                 'pressure': 0.75,
+                'pic_name': '270-25-rubber',
                 'patent': False,
               }
             ]
@@ -59,6 +62,7 @@ data = {
                   'shift_h': 3,
                 },
                 'pressure': 0.47,
+                'pic_name': '170-12-rubber',
                 'patent': False,
               },
               {
@@ -70,6 +74,7 @@ data = {
                   'shift_h': 10,
                 },
                 'pressure': 0.58,
+                'pic_name': '220-25-rubber',
                 'patent': False,
               },
               {
@@ -81,6 +86,7 @@ data = {
                   'shift_h': 10,
                 },
                 'pressure': 0.75,
+                'pic_name': '270-25-rubber',
                 'patent': False,
               }
             ]
@@ -98,6 +104,7 @@ data = {
                   'shift_h': 15,
                 },
                 'pressure': 0.60,
+                'pic_name': '240-20-pvc',
                 'patent': False,
               },
               {
@@ -109,6 +116,7 @@ data = {
                   'shift_h': 15,
                 },
                 'pressure': 0.80,
+                'pic_name': '320-20-pvc',
                 'patent': False,
               },
               {
@@ -120,6 +128,7 @@ data = {
                   'shift_h': 40,
                 },
                 'pressure': 0.80,
+                'pic_name': '320-30-pvc',
                 'patent': True,
               },
               {
@@ -131,6 +140,7 @@ data = {
                   'shift_h': 55,
                 },
                 'pressure': 0.80,
+                'pic_name': '320-40-pvc',
                 'patent': True,
               },
               {
@@ -142,6 +152,7 @@ data = {
                   'shift_h': 70,
                 },
                 'pressure': 0.80,
+                'pic_name': '320-50-pvc',
                 'patent': True,
               },
               {
@@ -153,6 +164,7 @@ data = {
                   'shift_h': 70,
                 },
                 'pressure': 0.85,
+                'pic_name': '400-50-pvc',
                 'patent': True,
               },
               {
@@ -164,6 +176,7 @@ data = {
                   'shift_h': 70,
                 },
                 'pressure': 0.85,
+                'pic_name': '500-50-pvc',
                 'patent': True,
               }
             ]
@@ -186,6 +199,7 @@ data = {
                   'shift_h': 3,
                 },
                 'pressure': 0.47,
+                'pic_name': '170-12-rubber',
                 'patent': False,
               },
               {
@@ -197,6 +211,7 @@ data = {
                   'shift_h': 10,
                 },
                 'pressure': 0.58,
+                'pic_name': '220-25-rubber',
                 'patent': False,
               },
               {
@@ -208,6 +223,7 @@ data = {
                   'shift_h': 10,
                 },
                 'pressure': 0.75,
+                'pic_name': '270-25-rubber',
                 'patent': False,
               }
             ]
@@ -225,6 +241,7 @@ data = {
                   'shift_h': 3,
                 },
                 'pressure': 0.47,
+                'pic_name': '170-12-rubber',
                 'patent': False,
               },
               {
@@ -236,6 +253,7 @@ data = {
                   'shift_h': 10,
                 },
                 'pressure': 0.58,
+                'pic_name': '220-25-rubber',
                 'patent': False,
               },
               {
@@ -247,6 +265,7 @@ data = {
                   'shift_h': 10,
                 },
                 'pressure': 0.75,
+                'pic_name': '270-25-rubber',
                 'patent': False,
               }
             ]
