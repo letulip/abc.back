@@ -44,8 +44,12 @@
         <h3 class="heading heading--h3">
           ВИД
         </h3>
-        
-        {% module ShponViews(module_data) %}
+
+        {% for val in module_data['material'] %}
+          {% if val['mat_type'] == module_material %}
+            {% module ShponViews(val) %}
+          {% end %}
+        {% end %}
         
       </article>
 
@@ -55,7 +59,11 @@
           Эксплуатационные характеристики
         </h3>
         
-        {% module ShponTable(module_data) %}
+        {% for val in module_data['material'] %}
+          {% if val['mat_type'] == module_material %}
+            {% module ShponTable(val) %}
+          {% end %}
+        {% end %}
 
       </article>
 

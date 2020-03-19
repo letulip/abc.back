@@ -1,22 +1,20 @@
 <table class="view">
-  {% for val in module_data['material'] %}
-    <tr class="techInfo__row">
-      <td class="techInfo__data techInfo__data--material" colspan="6">
-        {{ val['mat_type_ext'] }}
-      </td>
-    </tr>
-    {% for type in val['types'] %}
-      <tr class="view__row">
-        <td class="view__data view__data--narrow">{{ type['type'] }}</td>
-        {% if type['patent']%}
-          <td class="view__data view__data--wide view__data--patent">
-            <img class="img img--montage" src="/img/content/dv/dv-320-40-pvc.png" alt="" srcset="">
-          </td>
-        {% else %}
-          <td class="view__data view__data--wide">
-            <img class="img img--montage" src="/img/content/dv/dv-240-20-pvc.png" alt="" srcset="">
-          </td>
-        {% end %}
-    {% end %}
+  <tr class="techInfo__row">
+    <td class="techInfo__data techInfo__data--material" colspan="6">
+      {{ module_data['mat_type_ext'] }}
+    </td>
+  </tr>
+  {% for type in module_data['types'] %}
+    <tr class="view__row">
+      <td class="view__data view__data--narrow">{{ type['type'] }}</td>
+      {% if type['patent']%}
+        <td class="view__data view__data--wide view__data--patent">
+          <img class="img img--montage" src="/img/content/dv/dv-320-40-pvc.png" alt="" srcset="">
+        </td>
+      {% else %}
+        <td class="view__data view__data--wide">
+          <img class="img img--montage" src="/img/content/dv/dv-240-20-pvc.png" alt="" srcset="">
+        </td>
+      {% end %}
   {% end %}
 </table>

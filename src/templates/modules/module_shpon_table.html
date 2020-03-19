@@ -10,21 +10,19 @@
     <td class="techInfo__data"><strong>Сдвиг<br>поперечный</strong></td>
     <td class="techInfo__data"><strong>Сдвиг<br>продольный</strong></td>
   </tr>
-  {% for val in module_data['material'] %}
+  <tr class="techInfo__row">
+    <td class="techInfo__data techInfo__data--material" colspan="6">
+      {{ module_data['mat_type_ext'] }}
+    </td>
+  </tr>
+  {% for type in module_data['types'] %}
     <tr class="techInfo__row">
-      <td class="techInfo__data techInfo__data--material" colspan="6">
-        {{ val['mat_type_ext'] }}
-      </td>
+      <td class="techInfo__data">{{ type['type'] }}</td>
+      <td class="techInfo__data">{{ type['movements']['compres'] }}</td>
+      <td class="techInfo__data">{{ type['movements']['strech'] }}</td>
+      <td class="techInfo__data">{{ type['movements']['shift_v'] }}</td>
+      <td class="techInfo__data">{{ type['movements']['shift_h'] }}</td>
+      <td class="techInfo__data">{{ type['pressure'] }}</td>
     </tr>
-    {% for type in val['types'] %}
-      <tr class="techInfo__row">
-        <td class="techInfo__data">{{ type['type'] }}</td>
-        <td class="techInfo__data">{{ type['movements']['compres'] }}</td>
-        <td class="techInfo__data">{{ type['movements']['strech'] }}</td>
-        <td class="techInfo__data">{{ type['movements']['shift_v'] }}</td>
-        <td class="techInfo__data">{{ type['movements']['shift_h'] }}</td>
-        <td class="techInfo__data">{{ type['pressure'] }}</td>
-      </tr>
-    {% end %}
   {% end %}
 </table>
