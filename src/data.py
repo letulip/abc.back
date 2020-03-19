@@ -279,6 +279,12 @@ data = {
     'dir_contents': {
       'dshn': {
       'name': 'ДШН',
+      'material': [
+          {
+            'mat_type': 'epdm',
+            'mat_type_ext': 'Резиновые (EPDM)',
+          }
+        ],
       }
     }
   }
