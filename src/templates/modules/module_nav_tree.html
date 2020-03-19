@@ -15,28 +15,29 @@
       </div>
     </li>
     {% for val in module_data %}
-    <li class="navTree__item navTree__item--first navTree__item--first-active">
-      <div class="navTree__firstLevel navTree__firstLevel--active">
-        <span class="navTree__arrow navTree__arrow--dropped">&#10148;</span>
+    <li class="navTree__item navTree__item--first {% if active_nav_item == val %}navTree__item--first-active{% end %}">
+      <div class="navTree__firstLevel {% if active_nav_item == val %}navTree__firstLevel--active{% end %}">
+        <span class="navTree__arrow {% if active_nav_item == val %}navTree__arrow--dropped{% end %}">&#10148;</span>
         <a class="navTree__link" href="/catalog/{{ val }}">{{ module_data[val]['dir_name'] }}</a>
 
         {% if 'dir_contents' in module_data[val] %}
         <ul class="navTree__list navTree__list--second">
           
           {% for content_item in module_data[val]['dir_contents'] %}
-          <li class="navTree__item navTree__item--second  navTree__item--second-active">
-            <div class="navTree__secondLevel navTree__secondLevel--active">
-              <span class="navTree__arrow navTree__arrow--dropped">&#10148;</span>
+          <li class="navTree__item navTree__item--second {% if active_nav_item_second == content_item %}navTree__item--second-active{% end %}">
+            <div class="navTree__secondLevel {% if active_nav_item_second == content_item %}navTree__secondLevel--active{% end %}">
+              <span class="navTree__arrow {% if active_nav_item_second == content_item %}navTree__arrow--dropped{% end %}">&#10148;</span>
               <a class="navTree__link" href="/catalog/{{ val }}/{{ content_item }}">тип {{ module_data[val]['dir_contents'][content_item]['name'] }}</a>
             </div>
-
-            {% if 'material' in module_data[val] %}
+            {% if 'material' in module_data[val]['dir_contents'][content_item] %}
             <ul class="navTree__list navTree__list--third">
-              <li class="navTree__item navTree__item--third">
+              {% for material_item in module_data[val]['dir_contents'][content_item]['material'] %}
+              <li class="navTree__item navTree__item--third {% if active_nav_item_second == content_item %}navTree__item--third-active{% end %}">
                 <a href="demo_dv_rubber_1.html" class="navTree__link">
-                  <div class="navTree__thirdLevel">Резиновые (EPDM)</div>
+                  <div class="navTree__thirdLevel {% if active_nav_item_third == material_item['mat_type'] %}navTree__thirdLevel--active{% end %}">{{ material_item['mat_type_ext'] }}</div>
                 </a>
               </li>
+              {% end %}
             </ul>
             {% end %}
 

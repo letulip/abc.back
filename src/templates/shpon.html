@@ -6,10 +6,10 @@
 
 {% block content %}
 
-  {% module NavTree(common_data) %}
+  {% module NavTree(common_data, active_nav_item, active_nav_item_second, active_nav_item_third) %}
 
   <div class="pageLayout">
-    {% module NavTop(test_data, module_uri, False) %}
+    {% module NavTop(test_data, module_uri, False, active_nav_item) %}
 
     <h1 class="heading heading--h1">{{ test_data['dir_name'] }}</h1>
     <ol class="list">

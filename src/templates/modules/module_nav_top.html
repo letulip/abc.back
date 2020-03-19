@@ -5,14 +5,18 @@
     <li class="navTop__item">
       <a class="navTop__link" href="/catalog">Продукция</a>
     </li>
+
+    {% if active_nav_item %}
     <li class="navTop__item navTop__item--vr">></li>
     <li class="navTop__item">
-      <a class="navTop__link" href="/catalog/shpon">Гидроизоляционные&nbsp;шпонки</a>
+      <a class="navTop__link" href="/catalog/{{ active_nav_item }}">Гидроизоляционные&nbsp;шпонки</a>
     </li>
+    {% end %}
+
     {% if module_uri %}
     <li class="navTop__item navTop__item--vr">></li>
     <li class="navTop__item">
-      <a class="navTop__link" href="/catalog/shpon/{{ module_uri }}">тип {{ module_data['name'] }}</a>
+      <a class="navTop__link" href="/catalog/{{ active_nav_item }}/{{ module_uri }}">тип {{ module_data['name'] }}</a>
     </li>
     {% end %}
     

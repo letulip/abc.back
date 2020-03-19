@@ -4,10 +4,10 @@
 
 {% block content %}
   
-  {% module NavTree(test_data) %}
+  {% module NavTree(test_data, active_nav_item, active_nav_item_second, active_nav_item_third) %}
 
   <div class="pageLayout">
-    {% module NavTop(test_data, module_uri, False) %}
+    {% module NavTop(test_data, module_uri, False, active_nav_item) %}
 
     <h1 class="heading heading--h1">Каталог Продукции</h1>
     <ol class="list">

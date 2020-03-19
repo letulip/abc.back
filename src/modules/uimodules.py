@@ -9,21 +9,25 @@ class PageHeader(UIModule):
 
 
 class NavTree(UIModule):
-	def render(self, data):
+	def render(self, data, *args):
 		return self.render_string(
 			"modules/module_nav_tree.html",
-			module_data = data
+			module_data = data,
+			active_nav_item = args[0],
+			active_nav_item_second = args[1],
+			active_nav_item_third = args[2]
 		)
 
 
 class NavTop(UIModule):
 	def render(self, data, uri, *args):
-		# print(args[0])
+		# print(args[1])
 		return self.render_string(
 				"modules/module_nav_top.html",
 				module_data = data,
 				module_uri = uri,
-				module_material = args[0]
+				module_material = args[0],
+				active_nav_item = args[1]
 			)
 		
 

@@ -89,7 +89,10 @@ class CatalogPage(BaseHandler):
 		self.render(
 			'catalog.html',
 			test_data = test_data,
-			module_uri = 0
+			module_uri = 0,
+			active_nav_item = False,
+			active_nav_item_second = False,
+			active_nav_item_third = False
 		)
 
 
@@ -100,7 +103,10 @@ class ModuleShponMain(BaseHandler):
 			'shpon.html',
 			test_data = test_data['shpon'],
 			module_uri = 0,
-			common_data = test_data
+			common_data = test_data,
+			active_nav_item = 'shpon',
+			active_nav_item_second = False,
+			active_nav_item_third = False
 		)
 
 
@@ -124,7 +130,10 @@ class ModuleShponDetail(BaseHandler):
 			module_uri = make_path,
 			module_uri_material = material_path,
 			module_data = test_data['shpon']['dir_contents'][make_path],
-			common_data = test_data
+			common_data = test_data,
+			active_nav_item = 'shpon',
+			active_nav_item_second = make_path,
+			active_nav_item_third = material_path
 		)
 
 
