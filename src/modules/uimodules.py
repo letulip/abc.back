@@ -31,7 +31,6 @@ class NavTop(UIModule):
 			)
 		
 
-
 class ShponTabs(UIModule):
 	def render(self, data, material, category):
 		return self.render_string(
@@ -55,6 +54,16 @@ class ShponViews(UIModule):
 		return self.render_string(
 			"modules/module_shpon_views.html",
 			module_data = data
+		)
+
+
+class JointsTabs(UIModule):
+	def render(self, data, material, category):
+		return self.render_string(
+			"modules/module_joints_tabs.html",
+			module_data = data,
+			module_material = material,
+			module_uri = category
 		)
 
 

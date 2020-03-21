@@ -11,7 +11,13 @@
     {% if active_nav_item %}
     <li class="navTop__item navTop__item--vr">></li>
     <li class="navTop__item">
-      <a class="navTop__link" href="/catalog/{{ active_nav_item }}">Гидроизоляционные&nbsp;шпонки</a>
+      <a class="navTop__link" href="/catalog/{{ active_nav_item }}">
+        {% if active_nav_item == 'joints' %}
+        Делетационные&nbsp;устройста
+        {% elif active_nav_item == 'shpon' %}
+        Гидроизоляционные&nbsp;шпонки
+        {% end %}
+      </a>
     </li>
     {% end %}
 

@@ -137,6 +137,43 @@ class ModuleShponDetail(BaseHandler):
 		)
 
 
+class ModuleJointsMain(BaseHandler):
+
+	def get(self):
+		self.render(
+			'joints.html',
+			test_data = test_data['joints'],
+			module_uri = 0,
+			common_data = test_data,
+			active_nav_item = 'joints',
+			active_nav_item_second = False,
+			active_nav_item_third = False
+		)
+
+
+class ModuleJointsDetail(BaseHandler):
+
+	def get(self, uri):
+		path = ParseUri(uri)
+		make_path = path[0]
+		material_path = 0
+		if len(path) > 1:
+			material_path = path[1]
+		# print(material_path)
+		self.render(
+			'joints_content_layout.html',
+			# test_data = test_data[uri],
+			# table_data = self.renderTable(test_data[uri]['material']),
+			module_uri = make_path,
+			module_uri_material = material_path,
+			module_data = test_data['joints']['dir_contents'][make_path],
+			common_data = test_data,
+			active_nav_item = 'joints',
+			active_nav_item_second = make_path,
+			active_nav_item_third = material_path
+		)
+
+
 class App(Application):
 
 	def __init__(self):
@@ -146,7 +183,8 @@ class App(Application):
 			('/catalog', CatalogPage),
 			('/catalog/shpon', ModuleShponMain),
 			(r'/catalog/shpon/(.+)', ModuleShponDetail),
-			# ('/sb_test', SubTest)
+			('/catalog/joints', ModuleJointsMain),
+			(r'/catalog/joints/(.+)', ModuleJointsDetail),
 			(r'/(.*)', CustomStatic, {'path': static_path})
 		]
 

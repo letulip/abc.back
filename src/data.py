@@ -296,12 +296,75 @@ data = {
     # 'dir_address': 'joints',
     'dir_name': 'Делетационные устройства',
     'dir_contents': {
-      'dshn': {
-      'name': 'ДШН',
+      'dsha': {
+      'name': 'ДША',
       'material': [
           {
-            'mat_type': 'epdm',
-            'mat_type_ext': 'Резиновые (EPDM)',
+            'mat_type': 'al',
+            'mat_type_ext': 'Аллюминий',
+            'compensators': [
+              {
+                'type': 'A1-030',
+                'pic-name': 'a1030'
+              },
+              {
+                'type': 'A1-050',
+                'pic-name': 'a1050'
+              },
+              {
+                'type': 'A1-070',
+                'pic-name': 'a1070'
+              },
+              {
+                'type': 'A2-130',
+                'pic-name': 'a2130'
+              },
+              {
+                'type': 'A2-170',
+                'pic-name': 'a2170'
+              },
+              {
+                'type': 'A2-200',
+                'pic-name': 'a2200'
+              },
+            ],
+            'equip': [
+              'dsha0A175',
+              'dsha15A125',
+              'dsha30A68',
+              'dsha50A68'
+            ],
+            'types': [
+              {
+                'type': 'ДША-0',
+                'type_ext': 'ДША-0, ДША-0-УГЛ',
+                'specs': {
+                  'device': [
+                    'ДША-0-/050',
+                    'ДША-0-УГЛ/050'
+                  ],
+                  'compensator': 'А1-030',
+                  'compres': 5,
+                  'strech': 5,
+                  'shift_v': 6,
+                  'dimmension_a': 50,
+                  'dimmension_b': [
+                    220,
+                    135
+                  ],
+                  'pressure': 0.35,
+                },
+                'view_pics': [
+                  'dsha080',
+                  'dsha0A175'
+                ],
+                'montage_pics': [
+                  'dsha00_montage_duo',
+                ],
+                'patent': False,
+                'description': 'Накладные профильные конструкции АКВАСТОП® тип ДША-0 предназначены для обустройства деформационных швов, непосредственно по финишному покрытию пола.'
+              },
+            ],
           }
         ],
       }
