@@ -67,8 +67,9 @@
           <div class="equipment">
             {% for val in module_data['material'] %}
               {% if val['mat_type'] == module_material %}
-                <img class="img img--equipment" src="/img/content/{{ module_uri }}/{{ val['view_pics'][0] }}.png" alt="">
-                <img class="img img--equipment" src="/img/content/{{ module_uri }}/{{ val['view_pics'][1] }}.png" alt="">
+                {% for pic in val['view_pics'] %}
+                  <img class="img img--equipment" src="/img/content/{{ module_uri }}/{{ pic }}.png" alt="">
+                  {% end %}
               {% end %}
             {% end %}
           </div>
@@ -118,12 +119,16 @@
       <input type="radio" class="tabs__input" id="tab3" name="tabs" value="tab3">
       <article class="tabs__tabContent tabs__tabContent--second tabs__tabContent--3">
         <h3 class="heading heading--h3">
-          Порядок установки
+          Область применения
         </h3>
-        <p class="text text--sm text--padding-bottom">
-          Технологический регламент ТР 186-07.<br>
-          СТО НОСТРОЙ 2.7.156-2014.
-        </p>
+        {% for val in module_data['material'] %}
+          {% if val['mat_type'] == module_material and val['mat_type'] != 'types' %}
+          <p class="text text--sm text--padding-bottom">
+            {{ val['description'] }}
+          </p>
+          {% end %}
+        {% end %}
+        
       </article>
     </div>
   </article>
