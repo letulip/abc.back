@@ -339,9 +339,10 @@ data = {
           },
           {
             'mat_type': 'dsha0',
-            'mat_type_ext': 'ДША-0, ДША-0-УГЛ',
+            'mat_type_ext': 'ДША-0',
             'comp_material': 'ДША-0, ДША-0-УГЛ',
             'comp_type': 'Накладные',
+            'dimensions_count': 2,
             'specs': [
               {
                 'device': [
@@ -352,11 +353,10 @@ data = {
                 'compres': 5,
                 'strech': 5,
                 'shift_v': 6,
-                'dimmension_a': 50,
-                'dimmension_b': [
-                  220,
-                  135
-                ],
+                'dimensions': {
+                  'a': 50,
+                  'b': [220, 135],
+                },
                 'pressure': 0.35,
               },
               {
@@ -368,11 +368,10 @@ data = {
                 'compres': 15,
                 'strech': 14,
                 'shift_v': 10,
-                'dimmension_a': 80,
-                'dimmension_b': [
-                  250,
-                  165
-                ],
+                'dimensions': {
+                  'a': 80,
+                  'b': [250, 165],
+                },
                 'pressure': 0.25,
               },
               {
@@ -384,11 +383,10 @@ data = {
                 'compres': 32,
                 'strech': 30,
                 'shift_v': 13,
-                'dimmension_a': 110,
-                'dimmension_b': [
-                  280,
-                  195
-                ],
+                'dimensions': {
+                  'a': 110,
+                  'b': [280, 195],
+                },
                 'pressure': 0.10,
               },
               {
@@ -400,11 +398,10 @@ data = {
                 'compres': 30,
                 'strech': 26,
                 'shift_v': 20,
-                'dimmension_a': 135,
-                'dimmension_b': [
-                  305,
-                  220
-                ],
+                'dimensions': {
+                  'a': 1355,
+                  'b': [305, 220],
+                },
                 'pressure': 0.05,
               },
               {
@@ -416,11 +413,10 @@ data = {
                 'compres': 30,
                 'strech': 26,
                 'shift_v': 25,
-                'dimmension_a': 175,
-                'dimmension_b': [
-                  345,
-                  260
-                ],
+                'dimensions': {
+                  'a': 175,
+                  'b': [345, 260],
+                },
                 'pressure': 0.05,
               },
               {
@@ -432,11 +428,10 @@ data = {
                 'compres': 30,
                 'strech': 26,
                 'shift_v': 30,
-                'dimmension_a': 205,
-                'dimmension_b': [
-                  375,
-                  290
-                ],
+                'dimensions': {
+                  'a': 205,
+                  'b': [375, 290],
+                },
                 'pressure': 0.03,
               },
             ],
@@ -452,25 +447,106 @@ data = {
           },
           {
             'mat_type': 'dsha15',
-            'mat_type_ext': 'ДША-15, ДША-15-УГЛ',
+            'mat_type_ext': 'ДША-15',
             'comp_material': 'ДША-15, ДША-15-УГЛ',
             'comp_type': 'Накладные',
+            'dimensions_count': 3,
             'specs': [
               {
                 'device': [
                   'ДША-15-/025',
-                  'ДША-15-УГЛ/025'
+                  'ДША-15-УГЛ/038'
                 ],
                 'compensator': 'А1-030',
                 'compres': 5,
                 'strech': 5,
                 'shift_v': 6,
-                'dimmension_a': 50,
-                'dimmension_b': [
-                  220,
-                  135
-                ],
+                'dimensions': {
+                  'a': [ 25, 38],
+                  'b': 50,
+                  'c': [165, 108]
+                },
                 'pressure': 0.35,
+              },
+              {
+                'device': [
+                  'ДША-15-/055',
+                  'ДША-15-УГЛ/068'
+                ],
+                'compensator': 'А1-050',
+                'compres': 15,
+                'strech': 14,
+                'shift_v': 10,
+                'dimensions': {
+                  'a': [ 55, 68],
+                  'b': 80,
+                  'c': [195, 138]
+                },
+                'pressure': 0.25,
+              },
+              {
+                'device': [
+                  'ДША-15-/085',
+                  'ДША-15-УГЛ/098'
+                ],
+                'compensator': 'А1-050',
+                'compres': 15,
+                'strech': 14,
+                'shift_v': 10,
+                'dimensions': {
+                  'a': [ 55, 68],
+                  'b': 80,
+                  'c': [195, 138]
+                },
+                'pressure': 0.25,
+              },
+              {
+                'device': [
+                  'ДША-15-/110',
+                  'ДША-15-УГЛ/125'
+                ],
+                'compensator': 'А2-130',
+                'compres': 30,
+                'strech': 26,
+                'shift_v': 20,
+                'dimensions': {
+                  'a': [ 110, 125],
+                  'b': 135,
+                  'c': [250, 195]
+                },
+                'pressure': 0.05,
+              },
+              {
+                'device': [
+                  'ДША-15-/150',
+                  'ДША-15-УГЛ/165'
+                ],
+                'compensator': 'А2-170',
+                'compres': 30,
+                'strech': 26,
+                'shift_v': 25,
+                'dimensions': {
+                  'a': [ 150, 165],
+                  'b': 175,
+                  'c': [290, 235]
+                },
+                'pressure': 0.05,
+              },
+              {
+                'device': [
+                  'ДША-15-/180',
+                  'ДША-15-УГЛ/195'
+                ],
+                'compensator': 'А2-200',
+                'compres': 30,
+                'strech': 26,
+                'shift_v': 30,
+                'dimensions': {
+                  'a': [ 180, 195],
+                  'b': 205,
+                  'c': [320, 265]
+                },
+                'pressure': 0.03,
               },
             ],
             'view_pics': [

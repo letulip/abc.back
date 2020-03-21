@@ -3,15 +3,21 @@
     <th class="techInfo__data" width="24%" rowspan="2"><strong>Устройство</strong></th>
     <th class="techInfo__data" width="17%" rowspan="2"><strong>Компенсатор</strong></th>
     <th class="techInfo__data" colspan="3"><strong>Перемещение, мм</strong></th>
-    <th class="techInfo__data" colspan="2"><strong>Размеры, мм</strong></th>
+    <th class="techInfo__data" colspan="{{ module_data['dimensions_count'] }}"><strong>Размеры, мм</strong></th>
     <th class="techInfo__data" rowspan="2"><strong>Нагрузка, МПа</strong></th>
   </tr>
   <tr class="techInfo__row techInfo__row--top">
     <td class="techInfo__data" width="8%"><strong><img src="/img/joints/compression.png"></strong></td>
     <td class="techInfo__data" width="8%"><strong><img src="/img/joints/stretching.png"></strong></td>
     <td class="techInfo__data" width="8%"><strong><img src="/img/joints/shift.png"></strong></td>
+    {% if module_data['dimensions_count'] == 3 %}
+    <td class="techInfo__data" width="8%"><strong>А</strong></td>
+    <td class="techInfo__data" width="8%"><strong>В</strong></td>
+    <td class="techInfo__data" width="8%"><strong>C</strong></td>
+    {% else %}
     <td class="techInfo__data" width="12%"><strong>А</strong></td>
     <td class="techInfo__data" width="12%"><strong>В</strong></td>
+    {% end %}
   </tr>
   {% for spec in module_data['specs'] %}
     <tr class="techInfo__row">
@@ -20,13 +26,24 @@
       <td class="techInfo__data" rowspan="2">{{ spec['compres'] }}</td>
       <td class="techInfo__data" rowspan="2">{{ spec['strech'] }}</td>
       <td class="techInfo__data" rowspan="2">{{ spec['shift_v'] }}</td>
-      <td class="techInfo__data" rowspan="2">{{ spec['dimmension_a'] }}</td>
-      <td class="techInfo__data">{{ spec['dimmension_b'][0] }}</td>
+      {% if module_data['dimensions_count'] == 3 %}
+      <td class="techInfo__data">{{ spec['dimensions']['a'][0] }}</td>
+      <td class="techInfo__data" rowspan="2">{{ spec['dimensions']['b'] }}</td>
+      <td class="techInfo__data">{{ spec['dimensions']['c'][0] }}</td>
+      {% else %}
+      <td class="techInfo__data" rowspan="2">{{ spec['dimensions']['a'] }}</td>
+      <td class="techInfo__data">{{ spec['dimensions']['b'][0] }}</td>
+      {% end %}
       <td class="techInfo__data" rowspan="2">{{ spec['pressure'] }}</td>
     </tr>
     <tr class="techInfo__row">
       <td class="techInfo__data techInfo__data--first">{{ spec['device'][1] }}</td>
-      <td class="techInfo__data">{{ spec['dimmension_b'][1] }}</td>
+      {% if module_data['dimensions_count'] == 3 %}
+      <td class="techInfo__data">{{ spec['dimensions']['a'][1] }}</td>
+      <td class="techInfo__data">{{ spec['dimensions']['c'][1] }}</td>
+      {% else %}
+      <td class="techInfo__data">{{ spec['dimensions']['b'][1] }}</td>
+      {% end %}
     </tr>
   {% end %}
 </table>
