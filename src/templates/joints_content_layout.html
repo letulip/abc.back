@@ -9,17 +9,14 @@
   <div class="pageLayout">
     {% module NavTop(module_data, module_uri, module_uri_material, active_nav_item) %}
 
-    <h1 class="heading heading--h1">Делетационные устройства АКВАСТОП<sup>&reg;</sup> тип {{ module_data['name'] }}</h1>
+    <div class="content">
+      <h1 class="heading heading--h1">Делетационные устройства АКВАСТОП<sup>&reg;</sup> тип {{ module_data['name'] }}</h1>
 
-    <h3 class="heading heading--h3">Упаковка:</h3>
-    <p class="text">Алюминиевый профиль - 3 м</p>
-
-    {% if module_uri == 'types' %}
-
-    {% else %}
+      <h3 class="heading heading--h3">Упаковка:</h3>
+      <p class="text">Алюминиевый профиль - 3 м</p>
+      
       {% module JointsTabs(module_data, module_uri_material, module_uri) %}
-    {% end %}
-
+    </div>
   </div>
 {% end %}
 

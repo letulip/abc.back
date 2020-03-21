@@ -300,8 +300,10 @@ data = {
       'name': 'ДША',
       'material': [
           {
-            'mat_type': 'al',
-            'mat_type_ext': 'Аллюминий',
+            'mat_type': 'types',
+            'mat_type_ext': 'Типы компенсаторов',
+            'comp_material': 'Аллюминий',
+            'comp_type': 'Типы компенсаторов',
             'compensators': [
               {
                 'type': 'A1-030',
@@ -334,38 +336,152 @@ data = {
               'dsha30A68',
               'dsha50A68'
             ],
-            'types': [
+          },
+          {
+            'mat_type': 'dsha0',
+            'mat_type_ext': 'ДША-0, ДША-0-УГЛ',
+            'comp_material': 'ДША-0, ДША-0-УГЛ',
+            'comp_type': 'Накладные',
+            'specs': [
               {
-                'type': 'ДША-0',
-                'type_ext': 'ДША-0, ДША-0-УГЛ',
-                'specs': {
-                  'device': [
-                    'ДША-0-/050',
-                    'ДША-0-УГЛ/050'
-                  ],
-                  'compensator': 'А1-030',
-                  'compres': 5,
-                  'strech': 5,
-                  'shift_v': 6,
-                  'dimmension_a': 50,
-                  'dimmension_b': [
-                    220,
-                    135
-                  ],
-                  'pressure': 0.35,
-                },
-                'view_pics': [
-                  'dsha080',
-                  'dsha0A175'
+                'device': [
+                  'ДША-0-/050',
+                  'ДША-0-УГЛ/050'
                 ],
-                'montage_pics': [
-                  'dsha00_montage_duo',
+                'compensator': 'А1-030',
+                'compres': 5,
+                'strech': 5,
+                'shift_v': 6,
+                'dimmension_a': 50,
+                'dimmension_b': [
+                  220,
+                  135
                 ],
-                'patent': False,
-                'description': 'Накладные профильные конструкции АКВАСТОП® тип ДША-0 предназначены для обустройства деформационных швов, непосредственно по финишному покрытию пола.'
+                'pressure': 0.35,
+              },
+              {
+                'device': [
+                  'ДША-0-/080',
+                  'ДША-0-УГЛ/080'
+                ],
+                'compensator': 'А1-050',
+                'compres': 15,
+                'strech': 14,
+                'shift_v': 10,
+                'dimmension_a': 80,
+                'dimmension_b': [
+                  250,
+                  165
+                ],
+                'pressure': 0.25,
+              },
+              {
+                'device': [
+                  'ДША-0-/110',
+                  'ДША-0-УГЛ/110'
+                ],
+                'compensator': 'А1-070',
+                'compres': 32,
+                'strech': 30,
+                'shift_v': 13,
+                'dimmension_a': 110,
+                'dimmension_b': [
+                  280,
+                  195
+                ],
+                'pressure': 0.10,
+              },
+              {
+                'device': [
+                  'ДША-0-/135',
+                  'ДША-0-УГЛ/135'
+                ],
+                'compensator': 'А2-130',
+                'compres': 30,
+                'strech': 26,
+                'shift_v': 20,
+                'dimmension_a': 135,
+                'dimmension_b': [
+                  305,
+                  220
+                ],
+                'pressure': 0.05,
+              },
+              {
+                'device': [
+                  'ДША-0-/175',
+                  'ДША-0-УГЛ/175'
+                ],
+                'compensator': 'А2-170',
+                'compres': 30,
+                'strech': 26,
+                'shift_v': 25,
+                'dimmension_a': 175,
+                'dimmension_b': [
+                  345,
+                  260
+                ],
+                'pressure': 0.05,
+              },
+              {
+                'device': [
+                  'ДША-0-/205',
+                  'ДША-0-УГЛ/205'
+                ],
+                'compensator': 'А2-200',
+                'compres': 30,
+                'strech': 26,
+                'shift_v': 30,
+                'dimmension_a': 205,
+                'dimmension_b': [
+                  375,
+                  290
+                ],
+                'pressure': 0.03,
               },
             ],
-          }
+            'view_pics': [
+              'dsha080',
+              'dsha0A175'
+            ],
+            'montage_pics': [
+              'dsha00_montage_duo',
+            ],
+            'patent': False,
+            'description': 'Накладные профильные конструкции АКВАСТОП® тип ДША-0 предназначены для обустройства деформационных швов, непосредственно по финишному покрытию пола.'
+          },
+          {
+            'mat_type': 'dsha15',
+            'mat_type_ext': 'ДША-15, ДША-15-УГЛ',
+            'comp_material': 'ДША-15, ДША-15-УГЛ',
+            'comp_type': 'Накладные',
+            'specs': [
+              {
+                'device': [
+                  'ДША-15-/050',
+                  'ДША-15-УГЛ/050'
+                ],
+                'compensator': 'А1-030',
+                'compres': 5,
+                'strech': 5,
+                'shift_v': 6,
+                'dimmension_a': 50,
+                'dimmension_b': [
+                  220,
+                  135
+                ],
+                'pressure': 0.35,
+              },
+            ],
+            'view_pics': [
+              'dsha15A125'
+            ],
+            'montage_pics': [
+              'dsha15_montage_duo',
+            ],
+            'patent': False,
+            'description': 'АКВАСТОП® тип ДША-15 – обустройство деформационных швов с высотой конструкции пола от 15 мм. Возможно смонтировать в пространство плиточного клея.'
+          },
         ],
       }
     }

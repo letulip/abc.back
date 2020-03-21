@@ -67,6 +67,14 @@ class JointsTabs(UIModule):
 		)
 
 
+class JointsTable(UIModule):
+	def render(self, data):
+		return self.render_string(
+			"modules/module_joints_table.html",
+			module_data = data
+		)
+
+
 class PageFooter(UIModule):
 	def render(self):
 		return self.render_string(
