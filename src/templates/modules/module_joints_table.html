@@ -26,7 +26,7 @@
       <td class="techInfo__data" rowspan="2">{{ spec['compres'] }}</td>
       <td class="techInfo__data" rowspan="2">{{ spec['strech'] }}</td>
       <td class="techInfo__data" rowspan="2">{{ spec['shift_v'] }}</td>
-      {% if module_data['dimensions_count'] == 3 %}
+      {% if len(spec['dimensions']) == 3 %}
       <td class="techInfo__data">{{ spec['dimensions']['a'][0] }}</td>
       <td class="techInfo__data" rowspan="2">{{ spec['dimensions']['b'] }}</td>
       <td class="techInfo__data">{{ spec['dimensions']['c'][0] }}</td>
@@ -38,7 +38,7 @@
     </tr>
     <tr class="techInfo__row">
       <td class="techInfo__data techInfo__data--first">{{ spec['device'][1] }}</td>
-      {% if module_data['dimensions_count'] == 3 %}
+      {% if len(spec['dimensions']) == 3 %}
       <td class="techInfo__data">{{ spec['dimensions']['a'][1] }}</td>
       <td class="techInfo__data">{{ spec['dimensions']['c'][1] }}</td>
       {% else %}
