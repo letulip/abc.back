@@ -26,7 +26,7 @@
           {% for content_item in module_data[val]['dir_contents'] %}
           <li class="navTree__item navTree__item--second {% if active_nav_item_second == content_item %}navTree__item--second-active{% end %}">
             <div class="navTree__secondLevel {% if active_nav_item_second == content_item %}navTree__secondLevel--active{% end %}">
-              <span class="navTree__arrow {% if active_nav_item_second == content_item %}navTree__arrow--dropped{% end %}">&#10148;</span>
+              <span class="navTree__arrow navTree__arrow--second {% if active_nav_item_second == content_item %}navTree__arrow--dropped{% end %}">&#10148;</span>
               <a class="navTree__link" href="/catalog/{{ val }}/{{ content_item }}/{{ module_data[val]['dir_contents'][content_item]['material'][0]['mat_type'] }}">тип {{ module_data[val]['dir_contents'][content_item]['name'] }}</a>
             </div>
             {% if 'material' in module_data[val]['dir_contents'][content_item] %}

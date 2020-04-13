@@ -123,7 +123,7 @@
         </h3>
         {% for val in module_data['material'] %}
           {% if val['mat_type'] == module_material and val['mat_type'] != 'types' %}
-          <p class="text text--sm text--padding-bottom">
+          <p class="text">
             {{ val['description'] }}
           </p>
           {% end %}
