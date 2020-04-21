@@ -12,13 +12,13 @@
     <td class="techInfo__data"><strong>Сдвиг<br>продольный</strong></td>
   </tr>
   <tr class="techInfo__row">
-    <td class="techInfo__data techInfo__data--material" colspan="6">
+    <td class="techInfo__data techInfo__data--material" colspan="7">
       {{ module_data['mat_type_ext'] }}
     </td>
   </tr>
   {% for type in module_data['types'] %}
     <tr class="techInfo__row">
-      <td class="techInfo__data">
+      <td class="techInfo__data techInfo__data--previewHover">
         <span class="techInfo__hover">{{ type['type'] }}</span>
         <img class="techInfo__preview techInfo__preview--small" src="/img/content/dv/dv-{{ type['pic_name'] }}.png" alt="" srcset="">
       </td>
