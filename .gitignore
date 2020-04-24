@@ -2,4 +2,5 @@ src/.py3env
 src/__pycache__
 *.pyo
 *.pyc
+*.cfg
 .DS_Store
