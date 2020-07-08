@@ -2,16 +2,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{{ static_url("css/style.min.css") }}">
-  <title>{% block title %}Главная страница ABC Data Test{% end %}</title>
-</head>
-<body>
-  <h1>{% block heading %}Главная страница{% end %}</h1>
-
-  {% block content %}
-    Разметка главной страницы
-    <a href="/catalog">КАТАЛОГ</a>
+  {% block meta %}
   {% end %}
 
+  <!-- fix browser path for sub folder site -->
+  <!-- <base href="http://www.example.com/page.html"> -->
+
+  <link rel="stylesheet" href="/css/style.min.css">
+
+  <title>{% block title %}Главная страница ABC Data Test{% end %}</title>
+</head>
+<body class="pageBody">
+  {% module PageHeader() %}
+
+  <main class="pageMain">
+    <div class="pageMain__wrapper width width--fullscreen">
+      {% block content %}
+        Разметка главной страницы
+        <br>
+        <a href="/catalog">КАТАЛОГ</a>
+      {% end %}
+    </div>
+  </main>
+
+  {% module PageFooter() %}
+
+  {% block scrips %}
+  {% end %}
+  
 </body>
 </html>

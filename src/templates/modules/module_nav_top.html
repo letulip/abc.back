@@ -1,0 +1,40 @@
+<div class="navTop">
+  <ul class="navTop__list">
+    <li class="navTop__item">
+      <a class="navTop__link" href="/">Главная</a>
+    </li>
+    <li class="navTop__item navTop__item--vr"></li>
+    <li class="navTop__item">
+      <a class="navTop__link" href="/catalog">Продукция</a>
+    </li>
+
+    {% if active_nav_item %}
+    <li class="navTop__item navTop__item--vr"></li>
+    <li class="navTop__item navTop__item--long">
+      <a class="navTop__link" href="/catalog/{{ active_nav_item }}">
+        {% if active_nav_item == 'joints' %}
+        Дилатационные&nbsp;устройста
+        {% elif active_nav_item == 'shpon' %}
+        Гидроизоляционные&nbsp;шпонки
+        {% end %}
+      </a>
+    </li>
+    {% end %}
+
+    {% if module_uri %}
+    <li class="navTop__item navTop__item--vr"></li>
+    <li class="navTop__item">
+      <span class="navTop__link">тип {{ module_data['name'] }}</span>
+    </li>
+    {% end %}
+    
+    {% if type(module_material) == str %}
+      {% for val in module_data['material'] %}
+        {% if val['mat_type'] == module_material %}
+          <li class="navTop__item navTop__item--vr"></li>
+          <li class="navTop__item">{{ val['mat_type_ext'] }}</li>
+        {% end %}
+      {% end %}
+    {% end %}
+  </ul>
+</div>

@@ -1,0 +1,135 @@
+<section class="tabs">
+  <div class="tabs__labels">
+    {% for val in module_data['material'] %}
+      {% if val['mat_type'] == module_material %}
+        <a class="tabs__tab tabs__tab--first tabs__tab--active" href="/catalog/joints/{{ module_uri }}/{{ val['mat_type'] }}">
+          {{ val['mat_type_ext'] }}
+        </a>
+      {% else %}
+        <a class="tabs__tab tabs__tab--first" href="/catalog/joints/{{ module_uri }}/{{ val['mat_type'] }}">
+          {{ val['mat_type_ext'] }}
+        </a>
+      {% end %}
+    {% end %}
+  </div>
+  
+  <article class="tabs__tabContent tabs__tabContent--first tabs__tabContent--active">
+    <h3 class="heading heading--h3">
+      
+        {% for val in module_data['material'] %}
+          {% if val['mat_type'] == module_material %}
+            {{ val['comp_type'] }} -  <span class="heading__active">
+              {{ val['comp_material'] }}
+            </span>
+          {% end %}
+        {% end %}
+    </h3>
+    <div class="tabs__second">
+      <div class="tabs__labels">
+        <label class="tabs__tab tabs__tab--second" for="tab0">
+          Вид
+        </label>
+        {% if module_material == 'types' %}
+          <label class="tabs__tab tabs__tab--second" for="tab1">
+            Примеры комплектаций
+          </label>
+        {% else %}
+          <label class="tabs__tab tabs__tab--second" for="tab1">
+            Характеристики
+          </label>
+          <label class="tabs__tab tabs__tab--second" for="tab2">
+            Монтаж
+          </label>
+          <label class="tabs__tab tabs__tab--second" for="tab3">
+            Применение
+          </label>
+        {% end %}
+      </div>
+
+      <input type="radio" class="tabs__input" id="tab0" name="tabs" value="tab0" checked>
+      <article class="tabs__tabContent tabs__tabContent--second tabs__tabContent--0">
+        <h3 class="heading heading--h3">
+          ВИД
+        </h3>
+
+        {% if module_material == 'types' %}
+          <table class="view">
+            {% for val in module_data['material'][0]['compensators'] %}
+            <tr class="view__row">
+              <td class="view__data view__data--narrow">{{ val['type'] }}</td>
+              <td class="view__data view__data--wide">
+                <img class="img img--compensate" src="/img/content/{{ module_uri }}/{{ val['pic-name'] }}.png" alt="" srcset="">
+              </td>
+            </tr>
+            {% end %}
+          </table>
+        {% else %}
+          <div class="equipment">
+            {% for val in module_data['material'] %}
+              {% if val['mat_type'] == module_material %}
+                {% for pic in val['view_pics'] %}
+                  <img class="img img--equipment" src="/img/content/{{ module_uri }}/{{ pic }}.png" alt="">
+                  {% end %}
+              {% end %}
+            {% end %}
+          </div>
+        {% end %}
+        
+      </article>
+
+      <input type="radio" class="tabs__input" id="tab1" name="tabs" value="tab1">
+      <article class="tabs__tabContent tabs__tabContent--second tabs__tabContent--1">
+
+        {% if module_material == 'types' %}
+          <h3 class="heading heading--h3">
+            Примеры комплектаций
+          </h3>
+          <div class="equipment">
+            {% for val in module_data['material'][0]['equip'] %}
+            <img class="img img--equipment" src="/img/content/{{ module_uri }}/{{ val }}.png" alt="">
+            {% end %}
+          </div>
+        {% else %}
+          <h3 class="heading heading--h3">
+            Эксплуатационные характеристики
+          </h3>
+
+          {% for val in module_data['material'] %}
+            {% if val['mat_type'] == module_material %}
+              {% module JointsTable(val) %}
+            {% end %}
+          {% end %}
+        {% end %}
+
+      </article>
+
+      <input type="radio" class="tabs__input" id="tab2" name="tabs" value="tab2">
+      <article class="tabs__tabContent tabs__tabContent--second tabs__tabContent--2">
+        <h3 class="heading heading--h3">
+          Монтажная схема
+        </h3>
+        {% for val in module_data['material'] %}
+          {% if val['mat_type'] == module_material and val['mat_type'] != 'types' %}
+            <img class="img img--montage" src="/img/content/{{ module_uri }}/{{ val['montage_pics'][0] }}.png" alt="" srcset="">
+          {% end %}
+        {% end %}
+        
+      </article>
+
+      <input type="radio" class="tabs__input" id="tab3" name="tabs" value="tab3">
+      <article class="tabs__tabContent tabs__tabContent--second tabs__tabContent--3">
+        <h3 class="heading heading--h3">
+          Область применения
+        </h3>
+        {% for val in module_data['material'] %}
+          {% if val['mat_type'] == module_material and val['mat_type'] != 'types' %}
+          <p class="text">
+            {{ val['description'] }}
+          </p>
+          {% end %}
+        {% end %}
+        
+      </article>
+    </div>
+  </article>
+</section>

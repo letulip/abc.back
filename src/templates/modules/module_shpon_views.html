@@ -1,0 +1,14 @@
+<table class="view">
+  <tr class="techInfo__row">
+    <td class="techInfo__data techInfo__data--material" colspan="6">
+      {{ module_data['mat_type_ext'] }}
+    </td>
+  </tr>
+  {% for type in module_data['types'] %}
+    <tr class="view__row">
+      <td class="view__data view__data--narrow">{{ type['type'] }}</td>
+      <td class="view__data view__data--wide {% if type['patent'] %}view__data--patent{% end %}">
+        <img class="img img--montage" src="/img/content/dv/dv-{{ type['pic_name'] }}.png" alt="" srcset="">
+      </td>
+  {% end %}
+</table>

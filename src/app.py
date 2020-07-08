@@ -1,6 +1,3 @@
-import asyncio
-asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())  # python-3.8.0a4
-
 import sys
 import os
 import traceback
@@ -23,10 +20,10 @@ from modules import uimodules
 define('port', default = 9008, help = 'port to run on', type = int)
 define('site_url', default = 'localhost', help = 'site URL')
 
-base_path = os.path.abspath(os.path.dirname(__file__))
-static_path = os.path.realpath(os.path.join(base_path, './static'))
-template_path = os.path.realpath(os.path.join(base_path, 'templates'))
-module_path = os.path.realpath(os.path.join(base_path, 'modules'))
+webapp_path = os.path.abspath(os.path.dirname(__file__))
+static_path = os.path.realpath(os.path.join(webapp_path, './static'))
+template_path = os.path.realpath(os.path.join(webapp_path, 'templates'))
+module_path = os.path.realpath(os.path.join(webapp_path, 'modules'))
 
 
 class MixinCustomHandler():
@@ -88,48 +85,89 @@ class CatalogPage(BaseHandler):
 	def get(self):
 		self.render(
 			'catalog.html',
-			test_data = test_data
+			test_data = test_data,
+			module_uri = 0,
+			active_nav_item = False,
+			active_nav_item_second = False,
+			active_nav_item_third = False
 		)
 
 
-# class TestPage(BaseHandler):
+class ModuleShponMain(BaseHandler):
 
-# 	def renderTable(self, data):
-# 		# data = self.get_argument()
-# 		table = self.render_string(
-# 			'templates/dv_table.html',
-# 			test_data = data
-# 		)
-
-# 		return table
-
-# 	def get(self):
-# 		mat_type = (self.request.uri).split('/')[2]
-# 		self.render(
-# 			'dv_test.html',
-# 			test_data = test_data[mat_type],
-# 			table_data = self.renderTable(test_data[mat_type])
-# 		)
-
-
-class ModuleTest(BaseHandler):
-
-	def renderTable(self, data):
-		# data = self.get_argument()
-		table = self.render_string(
-			'shpon_table.html',
-			test_data = data
+	def get(self):
+		self.render(
+			'shpon.html',
+			test_data = test_data['shpon'],
+			module_uri = 0,
+			common_data = test_data,
+			active_nav_item = 'shpon',
+			active_nav_item_second = False,
+			active_nav_item_third = False
 		)
 
-		return table
+
+def ParseUri(uri):
+	return uri.split('/')
+
+
+class ModuleShponDetail(BaseHandler):
 
 	def get(self, uri):
-		# self.redirect(uri)
+		path = ParseUri(uri)
+		make_path = path[0]
+		material_path = 0
+		if len(path) > 1:
+			material_path = path[1]
+		# print(material_path)
 		self.render(
-			'shpon_test.html',
-			test_data = test_data[uri],
-			table_data = self.renderTable(test_data[uri]['material']),
-			module_data = test_data[uri]
+			'shpon_content_layout.html',
+			# test_data = test_data[uri],
+			# table_data = self.renderTable(test_data[uri]['material']),
+			module_uri = make_path,
+			module_uri_material = material_path,
+			module_data = test_data['shpon']['dir_contents'][make_path],
+			common_data = test_data,
+			active_nav_item = 'shpon',
+			active_nav_item_second = make_path,
+			active_nav_item_third = material_path
+		)
+
+
+class ModuleJointsMain(BaseHandler):
+
+	def get(self):
+		self.render(
+			'joints.html',
+			test_data = test_data['joints'],
+			module_uri = 0,
+			common_data = test_data,
+			active_nav_item = 'joints',
+			active_nav_item_second = False,
+			active_nav_item_third = False
+		)
+
+
+class ModuleJointsDetail(BaseHandler):
+
+	def get(self, uri):
+		path = ParseUri(uri)
+		make_path = path[0]
+		material_path = 0
+		if len(path) > 1:
+			material_path = path[1]
+		# print(material_path)
+		self.render(
+			'joints_content_layout.html',
+			# test_data = test_data[uri],
+			# table_data = self.renderTable(test_data[uri]['material']),
+			module_uri = make_path,
+			module_uri_material = material_path,
+			module_data = test_data['joints']['dir_contents'][make_path],
+			common_data = test_data,
+			active_nav_item = 'joints',
+			active_nav_item_second = make_path,
+			active_nav_item_third = material_path
 		)
 
 
@@ -140,8 +178,10 @@ class App(Application):
 		handlers = [
 			('/', HomePage),
 			('/catalog', CatalogPage),
-			(r'/catalog/(.+)', ModuleTest),
-			# ('/sb_test', SubTest)
+			('/catalog/shpon', ModuleShponMain),
+			(r'/catalog/shpon/(.+)', ModuleShponDetail),
+			('/catalog/joints', ModuleJointsMain),
+			(r'/catalog/joints/(.+)', ModuleJointsDetail),
 			(r'/(.*)', CustomStatic, {'path': static_path})
 		]
 

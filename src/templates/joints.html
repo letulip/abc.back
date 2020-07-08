@@ -1,0 +1,24 @@
+{% extends './index.html' %}
+
+{% block title %}Simple ABC Data Test - Joints{% end %}
+
+{% block heading %}{{ test_data['dir_name'] }}{% end %}
+
+{% block content %}
+
+  {% module NavTree(common_data, active_nav_item, active_nav_item_second, active_nav_item_third) %}
+
+  <div class="pageLayout">
+    {% module NavTop(test_data, module_uri, False, active_nav_item) %}
+
+    <div class="content">
+      <h1 class="heading heading--h1">{{ test_data['dir_name'] }}</h1>
+      <ol class="list">
+        {% for type in test_data['dir_contents'] %}
+          <li class="list__item"><a href="/catalog/{{ active_nav_item }}/{{ type }}/{{ test_data['dir_contents'][type]['material'][0]['mat_type'] }}">{{ test_data['dir_contents'][type]['name'] }}</a></li>
+        {% end %}
+      </ol>
+    </div>
+
+  </div>
+{% end %}

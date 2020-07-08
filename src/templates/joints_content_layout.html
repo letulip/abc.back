@@ -1,0 +1,24 @@
+{% extends './master_shpon.html' %}
+
+{% block title %}АКВАБАРЬЕР - Дилатационные устройства {{ module_data['name'] }}{% end %}
+
+{% block content %}
+
+  {% module NavTree(common_data, active_nav_item, active_nav_item_second, active_nav_item_third) %}
+  
+  <div class="pageLayout">
+    {% module NavTop(module_data, module_uri, module_uri_material, active_nav_item) %}
+
+    <div class="content">
+      <h1 class="heading heading--h1">Дилатационные устройства АКВАСТОП<sup>&reg;</sup> тип {{ module_data['name'] }}</h1>
+
+      <h3 class="heading heading--h3">Упаковка:</h3>
+      <p class="text">Алюминиевый профиль - 3 м</p>
+      
+      {% module JointsTabs(module_data, module_uri_material, module_uri) %}
+    </div>
+  </div>
+{% end %}
+
+{% block scrips %}
+{% end %}

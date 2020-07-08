@@ -1,0 +1,28 @@
+{% extends './master_shpon.html' %}
+
+{% block title %}АКВАБАРЬЕР - Шпонки тип {{ module_data['name'] }}{% end %}
+
+{% block content %}
+
+  {% module NavTree(common_data, active_nav_item, active_nav_item_second, active_nav_item_third) %}
+  
+  <div class="pageLayout">
+    {% module NavTop(module_data, module_uri, module_uri_material, active_nav_item) %}
+
+    <div class="content">
+      <h1 class="heading heading--h1">Гидроизоляционные шпонки АКВАСТОП<sup>&reg;</sup> тип {{ module_data['name'] }}</h1>
+
+      {% if 'description' in module_data %}
+      <p class="text">{{ module_data['description'] }}</p>
+      {% end %}
+  
+      <h2 class="heading heading--h2">Материал:</h2>
+  
+      {% module ShponTabs(module_data, module_uri_material, module_uri) %}
+    </div>
+  </div>
+{% end %}
+
+{% block scrips %}
+<script src="/js/techInfo/techInfo.js"></script>
+{% end %}

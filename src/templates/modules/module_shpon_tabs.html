@@ -1,0 +1,90 @@
+<section class="tabs">
+  <div class="tabs__labels">
+    {% for val in module_data['material'] %}
+      {% if val['mat_type'] == module_material %}
+        <a class="tabs__tab tabs__tab--first tabs__tab--active" href="/catalog/shpon/{{ module_uri }}/{{ val['mat_type'] }}">
+          {{ val['mat_type_ext'] }}
+        </a>
+      {% else %}
+        <a class="tabs__tab tabs__tab--first" href="/catalog/shpon/{{ module_uri }}/{{ val['mat_type'] }}">
+          {{ val['mat_type_ext'] }}
+        </a>
+      {% end %}
+    {% end %}
+  </div>
+  
+  <article class="tabs__tabContent tabs__tabContent--first tabs__tabContent--active">
+    <h3 class="heading heading--h3">
+      ХАРАКТЕРИСТИКИ - материал -  <span class="heading__active">
+        {% for val in module_data['material'] %}
+          {% if val['mat_type'] == module_material %}
+            {{ val['mat_type_ext'] }}
+          {% end %}
+        {% end %}
+      </span>
+    </h3>
+    <div class="tabs__second">
+      <div class="tabs__labels">
+        <label class="tabs__tab tabs__tab--second" for="tab0">
+          Вид
+        </label>
+        <label class="tabs__tab tabs__tab--second" for="tab1">
+          Характеристики
+        </label>
+        <label class="tabs__tab tabs__tab--second" for="tab2">
+          Монтаж
+        </label>
+        <label class="tabs__tab tabs__tab--second" for="tab3">
+          Документация
+        </label>
+      </div>
+
+      <input type="radio" class="tabs__input" id="tab0" name="tabs" value="tab0" checked>
+      <article class="tabs__tabContent tabs__tabContent--second tabs__tabContent--0">
+        <h3 class="heading heading--h3">
+          ВИД
+        </h3>
+
+        {% for val in module_data['material'] %}
+          {% if val['mat_type'] == module_material %}
+            {% module ShponViews(val) %}
+          {% end %}
+        {% end %}
+        
+      </article>
+
+      <input type="radio" class="tabs__input" id="tab1" name="tabs" value="tab1">
+      <article class="tabs__tabContent tabs__tabContent--second tabs__tabContent--1">
+        <h3 class="heading heading--h3">
+          Эксплуатационные характеристики
+        </h3>
+        
+        {% for val in module_data['material'] %}
+          {% if val['mat_type'] == module_material %}
+            {% module ShponTable(val) %}
+          {% end %}
+        {% end %}
+
+      </article>
+
+      <input type="radio" class="tabs__input" id="tab2" name="tabs" value="tab2">
+      <article class="tabs__tabContent tabs__tabContent--second tabs__tabContent--2">
+        <h3 class="heading heading--h3">
+          Монтажная схема
+        </h3>
+        <img class="img img--montage" src="/img/content/dv/montage-dv-pvc.png" alt="" srcset="">
+      </article>
+
+      <input type="radio" class="tabs__input" id="tab3" name="tabs" value="tab3">
+      <article class="tabs__tabContent tabs__tabContent--second tabs__tabContent--3">
+        <h3 class="heading heading--h3">
+          Порядок установки
+        </h3>
+        <p class="text">
+          Технологический регламент ТР 186-07.<br>
+          СТО НОСТРОЙ 2.7.156-2014.
+        </p>
+      </article>
+    </div>
+  </article>
+</section>

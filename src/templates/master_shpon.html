@@ -1,0 +1,37 @@
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% block meta %}
+  {% end %}
+
+  <!-- fix browser path for sub folder site -->
+  <!-- <base href="http://www.example.com/page.html"> -->
+
+  <link rel="stylesheet" href="/css/style.min.css">
+  
+  <title>{% block title %}Главная страница ABC Data Test{% end %}</title>
+</head>
+<body class="pageBody">
+  {% module PageHeader() %}
+
+  <main class="pageMain">
+    <div class="pageMain__wrapper width width--fullscreen">
+
+      {% block content %}
+        Шаблон разметки страницы Шпонки
+      {% end %}
+
+    </div>
+  </main>
+
+  {% module PageFooter() %}
+
+  <script src="/js/navTop/navTop.js"></script>
+  <script src="/js/tabs/tabs2.js"></script>
+  <script src="/js/navTree/navTree2.js"></script>
+  {% block scrips %}
+  {% end %}
+  
+</body>
+</html>
