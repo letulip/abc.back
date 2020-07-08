@@ -64,11 +64,13 @@ class CustomStatic(MixinCustomHandler, StaticFileHandler):
     render = MixinCustomHandler.render
 
 
-class TestPageBaseHandler(BaseHandler):
+class TemplatePage(BaseHandler):
 
-	def render(self, template_name, **kwargs):
-		# TODO
-		pass
+    def initialize(self, template):
+        self.template = template
+
+    def get(self):
+        self.render(self.template)
 
 
 class HomePage(BaseHandler):
@@ -177,12 +179,15 @@ class App(Application):
 
 		handlers = [
 			('/', HomePage),
+      ('/partners', TemplatePage, {
+          'template': 'contacts.html'
+      }),
 			('/catalog', CatalogPage),
 			('/catalog/shpon', ModuleShponMain),
 			(r'/catalog/shpon/(.+)', ModuleShponDetail),
 			('/catalog/joints', ModuleJointsMain),
 			(r'/catalog/joints/(.+)', ModuleJointsDetail),
-			(r'/(.*)', CustomStatic, {'path': static_path})
+			(r'/(.*)', CustomStatic, {'path': static_path}),
 		]
 
 		settings = dict(
