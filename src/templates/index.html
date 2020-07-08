@@ -18,9 +18,44 @@
   <main class="pageMain">
     <div class="pageMain__wrapper width width--fullscreen">
       {% block content %}
-        Разметка главной страницы
-        <br>
-        <a href="/catalog">КАТАЛОГ</a>
+      <div class="pageLayout">
+
+        <div class="content">
+          <h1 class="heading heading--h1">О нас</h1>
+          <p class="text">
+            Некоторая информация о Компании
+          </p>
+        </div>
+
+        <div class="content">
+          <h2 class="heading heading--h2">Каталог</h2>
+          <p class="text">
+            <a class="text text--link" href="/catalog">КАТАЛОГ</a>
+          </p>
+        </div>
+        
+        <div class="content">
+          <h2 class="heading heading--h2">Новости</h2>
+          <p class="text">
+            Блок актуальных новостей 3-4 штуки
+          </p>
+        </div>
+        
+        <div class="content">
+          <h2 class="heading heading--h2">Сервисы</h2>
+          <p class="text">
+            Блок описывающий возможные Сервисы (Шеф-монтаж, Обучение монтажу и т.п.)
+          </p>
+        </div>
+        
+        <div class="content">
+          <h2 class="heading heading--h2">
+            <a href="/contacts" class="text--link">Партнеры</a>
+          </h2>
+        </div>
+
+      </div>
+
       {% end %}
     </div>
     

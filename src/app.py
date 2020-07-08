@@ -182,6 +182,12 @@ class App(Application):
       ('/partners', TemplatePage, {
           'template': 'contacts.html'
       }),
+      ('/objects', TemplatePage, {
+          'template': 'objects.html'
+      }),
+      ('/info', TemplatePage, {
+          'template': 'info.html'
+      }),
 			('/catalog', CatalogPage),
 			('/catalog/shpon', ModuleShponMain),
 			(r'/catalog/shpon/(.+)', ModuleShponDetail),
