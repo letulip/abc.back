@@ -3,4 +3,5 @@ src/__pycache__
 *.pyo
 *.pyc
 *.cfg
+*.tgz
 .DS_Store
