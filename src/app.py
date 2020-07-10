@@ -66,11 +66,12 @@ class CustomStatic(MixinCustomHandler, StaticFileHandler):
 
 class TemplatePage(BaseHandler):
 
-    def initialize(self, template):
+    def initialize(self, template, main_nav_active):
         self.template = template
+        self.main_nav_active = main_nav_active
 
     def get(self):
-        self.render(self.template)
+        self.render(self.template, main_nav_active = self.main_nav_active)
 
 
 class HomePage(BaseHandler):
@@ -79,7 +80,8 @@ class HomePage(BaseHandler):
 
 		self.render(
 			'index.html',
-			test_data = test_data
+			test_data = test_data,
+      main_nav_active = 'home'
 		)
 
 
@@ -91,7 +93,8 @@ class CatalogPage(BaseHandler):
 			module_uri = 0,
 			active_nav_item = False,
 			active_nav_item_second = False,
-			active_nav_item_third = False
+			active_nav_item_third = False,
+      main_nav_active = 'catalog'
 		)
 
 
@@ -105,7 +108,8 @@ class ModuleShponMain(BaseHandler):
 			common_data = test_data,
 			active_nav_item = 'shpon',
 			active_nav_item_second = False,
-			active_nav_item_third = False
+			active_nav_item_third = False,
+      main_nav_active = 'catalog'
 		)
 
 
@@ -132,7 +136,8 @@ class ModuleShponDetail(BaseHandler):
 			common_data = test_data,
 			active_nav_item = 'shpon',
 			active_nav_item_second = make_path,
-			active_nav_item_third = material_path
+			active_nav_item_third = material_path,
+      main_nav_active = 'catalog'
 		)
 
 
@@ -146,7 +151,8 @@ class ModuleJointsMain(BaseHandler):
 			common_data = test_data,
 			active_nav_item = 'joints',
 			active_nav_item_second = False,
-			active_nav_item_third = False
+			active_nav_item_third = False,
+      main_nav_active = 'catalog'
 		)
 
 
@@ -169,7 +175,8 @@ class ModuleJointsDetail(BaseHandler):
 			common_data = test_data,
 			active_nav_item = 'joints',
 			active_nav_item_second = make_path,
-			active_nav_item_third = material_path
+			active_nav_item_third = material_path,
+      main_nav_active = 'catalog'
 		)
 
 
@@ -180,13 +187,16 @@ class App(Application):
 		handlers = [
 			('/', HomePage),
       ('/partners', TemplatePage, {
-          'template': 'contacts.html'
+          'template': 'contacts.html',
+          'main_nav_active': 'partners'
       }),
       ('/objects', TemplatePage, {
-          'template': 'objects.html'
+          'template': 'objects.html',
+          'main_nav_active': 'objects'
       }),
       ('/info', TemplatePage, {
-          'template': 'info.html'
+          'template': 'info.html',
+          'main_nav_active': 'info'
       }),
 			('/catalog', CatalogPage),
 			('/catalog/shpon', ModuleShponMain),

@@ -2,9 +2,10 @@ from tornado.web import UIModule
 
 
 class PageHeader(UIModule):
-	def render(self):
+	def render(self, nav_active):
 		return self.render_string(
-			"modules/module_page_header.html"
+			"modules/module_page_header.html",
+       nav_active = nav_active
 		)
 
 
